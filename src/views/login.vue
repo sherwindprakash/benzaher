@@ -23,6 +23,7 @@
                     placeholder="Email"
                   />
                 </div>
+                <h1>123</h1>
 
                 <!-- form input control -->
                 <div class="form-group">
