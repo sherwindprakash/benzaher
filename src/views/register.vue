@@ -236,7 +236,6 @@ export default {
 
   methods: {
     processForm: function () {
-
       var data = JSON.stringify({
         user: {
           FullName: this.FullName,
@@ -251,7 +250,7 @@ export default {
           group: "author",
           api_key: true,
           OneTime: "No",
-          City:this.City
+          City: this.City,
         },
       });
 
@@ -266,29 +265,29 @@ export default {
 
       axios(config)
         .then(function (response) {
-
           //console.log(response.data.email)
 
-          // 
-const options = {
-method: 'POST',
-url: 'https://checkout.thawani.om/api/v1/customers',
-params: {'': ''},
-headers: {
-'thawani-api-key': 'ROGUWytTjnGkC7hWqA0EwQTbhSO1du',
-'Content-Type': 'application/json'
-},
-data: {client_customer_id: response.data.email}
-};
+          //
+          const options = {
+            method: "POST",
+            url: "https://checkout.thawani.om/api/v1/customers",
+            params: { "": "" },
+            headers: {
+              "thawani-api-key": "ROGUWytTjnGkC7hWqA0EwQTbhSO1du",
+              "Content-Type": "application/json",
+            },
+            data: { client_customer_id: response.data.email },
+          };
 
-axios.request(options).then(function (response) {
-console.log(response.data);
-}).catch(function (error) {
-console.error(error);
-});
-// 
-
-
+          axios
+            .request(options)
+            .then(function (response) {
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              console.error(error);
+            });
+          //
 
           notyf.success(
             "Registration success. please login to access the portal."
