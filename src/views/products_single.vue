@@ -109,11 +109,9 @@
                   <div style="margin-top: 40px" class="text-right" v-if="customersEmail">
                     <form id="addtocart-form" @submit.prevent="AddtoCart">
                       <!--  -->
-
-                      <input v-if="key == 1" id="one" :value="info.price" />
-                      <input v-if="key == 2" id="one" :value="info.price_4L" />
-                      <input v-if="key == 3" id="one" :value="info.price_5L" />
-
+                      <input v-if="key == 1" id="one" v-model="info.price" />
+                      <input v-if="key == 2" id="one" v-model="info.price_4L" />
+                      <input v-if="key == 3" id="one" v-model="info.price_5L" />
                       <!--  -->
                       <button class="btn btn-primary" type="submit">Add to Cart</button>
                     </form>
