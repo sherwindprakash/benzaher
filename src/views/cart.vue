@@ -68,7 +68,6 @@
 
                                             </form>
                                             <!--  -->
-                                            
                                             <!--  -->
                                         </div>
                                     </div>
@@ -102,6 +101,7 @@ export default {
             errored: false,
             basket_total: null,
             key: "0",
+
         };
     },
     computed: {
@@ -142,6 +142,7 @@ export default {
         //
     },
     methods: {
+      
         Pay: function () {
             // Timestmp
             const timestamp = useTimestamp({
@@ -184,7 +185,7 @@ export default {
                 .then(function (response) {
                     console.log("session_id", response.data.data.session_id);
                     console.log(response.data.data);
-                    window.open("https://checkout.thawani.om/pay/"+ response.data.data.session_id, "_self");
+                    //window.open("https://checkout.thawani.om/pay/"+ response.data.data.session_id, "_self");
                 })
                 .catch(function (error) {
                     console.error(error);
