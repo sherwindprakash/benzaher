@@ -95,23 +95,19 @@
                   <!-- quantit -->
                   <div class="column text-right">
                     <h2 style="font-weight: bold" v-if="key == 1">
-                      <b>{{ info.price }}</b> <sup>OMR</sup>
+                      <b>{{ info.price * quantity }}</b>
+                      <sup>OMR</sup>
                     </h2>
                     <h2 style="font-weight: bold" v-if="key == 2">
-                      <b>{{ info.price_4L }}</b> <sup>OMR</sup>
+                      <b>{{ info.price_4L * quantity }}</b> <sup>OMR</sup>
                     </h2>
                     <h2 style="font-weight: bold" v-show="key == 3">
-                      <b>{{ info.price_5L }}</b> <sup>OMR</sup>
+                      <b>{{ info.price_5L * quantity }}</b> <sup>OMR</sup>
                     </h2>
                   </div>
                   <!--  -->
-
                   <div style="margin-top: 40px" class="text-right" v-if="customersEmail">
                     <form id="addtocart-form" @submit.prevent="AddtoCart">
-                      <!--  -->
-                      <input v-if="key == 1" id="one" v-model="info.price" />
-                      <input v-if="key == 2" id="one" v-model="info.price_4L" />
-                      <input v-if="key == 3" id="one" v-model="info.price_5L" />
                       <!--  -->
                       <button class="btn btn-primary" type="submit">Add to Cart</button>
                     </form>
@@ -151,6 +147,8 @@
 
 <script>
 import axios from "axios";
+import router from "../router";
+var notyf = new Notyf();
 
 export default {
   data() {
@@ -166,6 +164,17 @@ export default {
   computed: {
     customersEmail() {
       return sessionStorage.getItem("customersEmail");
+    },
+    Value() {
+      if (this.key === 1) {
+        return this.info.price * this.quantity;
+      } else if (this.key === 2) {
+        return this.info.price_4L * this.quantity;
+      } else if (this.key === 3) {
+        return this.info.price_5L * this.quantity;
+      } else {
+        return this.info.price * this.quantity;
+      }
     },
   },
   components: {},
@@ -199,7 +208,7 @@ export default {
             data: {
               user: this.customersEmail,
               product: this.$route.params.productsid,
-              value: this.info.price,
+              value: this.Value,
               quantity: this.quantity,
               id: this.currentDate(),
             },
@@ -207,7 +216,13 @@ export default {
         }
       )
         .then((res) => res.json())
-        .then((entry) => console.log(entry));
+        .then((entry) => {
+          notyf.success("Add to Cart success.");
+          console.log(entry);
+          window.setTimeout(function () {
+            window.location.reload();
+          }, 3000);
+        });
     },
     //
     currentDate() {
@@ -225,6 +240,7 @@ export default {
 sup {
   font-weight: 400;
   font-size: 20px;
+  padding-left: 5px;
 }
 button.ImgBGBut {
   border: none;

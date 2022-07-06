@@ -39,13 +39,7 @@
           </router-link>
         </div>
       </div>
-      <div
-        class="
-          column
-          col-7 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-7
-          hide-lg
-        "
-      >
+      <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-7 hide-lg">
         <!-- dropdown button group -->
         <div class="dropdown">
           <div class="btn-group">
@@ -56,8 +50,7 @@
               :class="[
                 {
                   'router-link-active active':
-                    $route.name === 'Who_we_are' ||
-                    $route.name === 'Why_choose_us',
+                    $route.name === 'Who_we_are' || $route.name === 'Why_choose_us',
                 },
               ]"
               >The Company</router-link
@@ -111,9 +104,7 @@
               <router-link class="MenuSub" to="/products-&-services/services"
                 >Services</router-link
               >
-              <router-link
-                class="MenuSub"
-                to="/products-&-services/service-centers"
+              <router-link class="MenuSub" to="/products-&-services/service-centers"
                 >Service Centers</router-link
               >
             </ul>
@@ -143,9 +134,7 @@
               <router-link class="MenuSub" to="/recommended/sponsorship"
                 >Sponsorship</router-link
               >
-              <router-link class="MenuSub" to="/recommended/news"
-                >News</router-link
-              >
+              <router-link class="MenuSub" to="/recommended/news">News</router-link>
             </ul>
           </div>
         </div>
@@ -153,13 +142,7 @@
         <router-link class="Menu" to="/careers">Careers</router-link>
         <router-link class="Menu" to="/contact-us">Contact us</router-link>
       </div>
-      <div
-        class="
-          column
-          col-3 col-xs-8 col-sm-8 col-md-8 col-lg-9 col-xl-2
-          text-right
-        "
-      >
+      <div class="column col-3 col-xs-8 col-sm-8 col-md-8 col-lg-9 col-xl-2 text-right">
         <div
           class="hide-lg"
           style="display: flex; align-items: center; justify-content: flex-end"
@@ -174,9 +157,12 @@
               title="Arabic"
             />
           </router-link>
-
-          <span v-if="Auth" class="badge" data-badge="2">
-            <img class="Cart" src="../assets/cart.svg" />
+          <span v-if="Auth">
+            <router-link class="Cart" to="/cart">
+              <span v-if="cart" class="badge" :data-badge="cart.length">
+                <img class="Cart" src="../assets/cart.svg" />
+              </span>
+            </router-link>
           </span>
 
           <div v-if="Auth">
@@ -185,10 +171,7 @@
                 <a href="#profile">
                   <figure class="avatar avatar-md">
                     <img
-                      :src="
-                        'https://binzaher.com/api/storage/uploads' +
-                        ProfilePic.path
-                      "
+                      :src="'https://binzaher.com/api/storage/uploads' + ProfilePic.path"
                       alt="..."
                     />
                   </figure>
@@ -197,20 +180,13 @@
               <span v-else>
                 <a href="#profile">
                   <figure class="avatar avatar-md">
-                    <img
-                      src="../assets/64x64.png"
-                      alt="..."
-                    />
+                    <img src="../assets/64x64.png" alt="..." />
                   </figure>
                 </a>
               </span>
 
               <div class="modal modal-sm" id="profile">
-                <a
-                  class="modal-overlay"
-                  href="#modals-sizes"
-                  aria-label="Close"
-                ></a>
+                <a class="modal-overlay" href="#modals-sizes" aria-label="Close"></a>
                 <div
                   class="modal-container"
                   role="document"
@@ -230,9 +206,7 @@
                           to="/profile"
                           >Profile</router-link
                         >
-                        <button class="btn btn-primary" type="submit">
-                          Logout
-                        </button>
+                        <button class="btn btn-primary" type="submit">Logout</button>
                       </form>
                     </div>
                   </div>
@@ -248,10 +222,7 @@
         </div>
 
         <div class="show-lg text-right">
-          <div
-            class="off-canvas"
-            style="text-align: right; width: 100%; display: block"
-          >
+          <div class="off-canvas" style="text-align: right; width: 100%; display: block">
             <!-- off-screen toggle button -->
             <router-link to="/">
               <img
@@ -286,18 +257,12 @@
                   alt="Benzaher"
                 />
               </div>
-              <div
-                class="text-center"
-                style="margin-bottom: 15px; margin-top: 5px"
-              >
+              <div class="text-center" style="margin-bottom: 15px; margin-top: 5px">
                 <router-link to="/profile">
                   <figure class="avatar avatar-xl">
                     <img
                       v-if="Auth"
-                      :src="
-                        'https://binzaher.com/api/storage/uploads' +
-                        ProfilePic.path
-                      "
+                      :src="'https://binzaher.com/api/storage/uploads' + ProfilePic.path"
                       alt="..."
                     />
                     <img v-else src="../assets/64x64.png" alt="..." />
@@ -308,11 +273,7 @@
                   <form
                     id="logout-form"
                     @submit.prevent="logout"
-                    style="
-                      text-align: center;
-                      padding-left: 15px;
-                      margin-top: 20px;
-                    "
+                    style="text-align: center; padding-left: 15px; margin-top: 20px"
                   >
                     <router-link
                       class="btn btn-primary"
@@ -320,9 +281,7 @@
                       to="/profile"
                       >Profile</router-link
                     >
-                    <button class="btn btn-primary" type="submit">
-                      Logout
-                    </button>
+                    <button class="btn btn-primary" type="submit">Logout</button>
                   </form>
                 </div>
               </div>
@@ -330,9 +289,7 @@
               <div class="MobileMenu">
                 <div v-if="!Auth">
                   <router-link class="Menu" to="/login">Login</router-link>
-                  <router-link class="Menu" to="/register"
-                    >Register</router-link
-                  >
+                  <router-link class="Menu" to="/register">Register</router-link>
                 </div>
                 <router-link class="Menu" to="/the-company/who-we-are"
                   >Who we are</router-link
@@ -341,13 +298,9 @@
                 <router-link class="Menu" to="/products-&-services"
                   >Products & Services</router-link
                 >
-                <router-link class="Menu" to="/recommended"
-                  >Recommended</router-link
-                >
+                <router-link class="Menu" to="/recommended">Recommended</router-link>
                 <router-link class="Menu" to="/careers">Careers</router-link>
-                <router-link class="Menu" to="/contact-us"
-                  >Contact us</router-link
-                >
+                <router-link class="Menu" to="/contact-us">Contact us</router-link>
               </div>
             </div>
 
@@ -363,8 +316,6 @@
   </div>
 </template>
 
-
-
 <script>
 import axios from "axios";
 
@@ -379,6 +330,7 @@ export default {
       INT: null,
       User: null,
       ProfilePic: false,
+      cart: null,
     };
   },
   watch: {},
@@ -391,6 +343,16 @@ export default {
     },
   },
   mounted() {
+    axios
+      .get(
+        "https://binzaher.com/api/api/collections/get/cart?token=b8766574e1a92b4e6296441248669c&filter[user]=" +
+          this.UserEmail
+      )
+      .then((response) => {
+        this.cart = response.data.entries;
+        console.log(response.data.entries);
+      });
+
     axios
       .get(
         "https://binzaher.com/api/api/cockpit/assets?token=b8766574e1a92b4e6296441248669c&filter[email]=" +
@@ -447,9 +409,6 @@ export default {
   },
 };
 </script>
-
-
-
 
 <style lang="scss">
 img.Cart {
