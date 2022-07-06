@@ -158,11 +158,9 @@
             />
           </router-link>
           <span v-if="Auth">
-            <router-link class="Cart" to="/cart">
-              <span v-if="cart" class="badge" :data-badge="cart.length">
-                <img class="Cart" src="../assets/cart.svg" />
-              </span>
-            </router-link>
+          <!-- Cart -->
+          <Cart />
+          <!--  -->
           </span>
 
           <div v-if="Auth">
@@ -318,6 +316,7 @@
 
 <script>
 import axios from "axios";
+import Cart from "@/components/cart.vue";
 
 export default {
   name: "Header",
@@ -330,10 +329,12 @@ export default {
       INT: null,
       User: null,
       ProfilePic: false,
-      cart: null,
     };
   },
   watch: {},
+components: {
+    Cart,
+  },
   computed: {
     UserID() {
       return sessionStorage.getItem("customersId");
@@ -343,15 +344,7 @@ export default {
     },
   },
   mounted() {
-    axios
-      .get(
-        "https://binzaher.com/api/api/collections/get/cart?token=b8766574e1a92b4e6296441248669c&filter[user]=" +
-          this.UserEmail
-      )
-      .then((response) => {
-        this.cart = response.data.entries;
-        console.log(response.data.entries);
-      });
+   
 
     axios
       .get(
