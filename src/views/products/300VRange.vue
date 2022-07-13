@@ -1,8 +1,8 @@
 <template>
   <section v-if="errored">
     <p>
-      We're sorry, we're not able to retrieve this information at the moment,
-      please try back later
+      We're sorry, we're not able to retrieve this information at the moment, please try
+      back later
     </p>
   </section>
 
@@ -14,9 +14,7 @@
     <div v-else>
       <div class="ProductSingleHolder">
         <div class="columns" style="padding-top: 20px; padding-bottom: 100px">
-          <div
-            class="column col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
-          >
+          <div class="column col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <h1
               style="
                 font-size: 25px;
@@ -30,11 +28,7 @@
             </h1>
           </div>
           <div
-            class="
-              column
-              col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6
-              rightholder
-            "
+            class="column col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 rightholder"
           >
             <router-link class="Search" to="/Search">Search</router-link>
           </div>
@@ -44,15 +38,12 @@
           <div
             v-for="item in info"
             :key="item"
-            class="
-              column
-              col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4
-              text-center
-            "
-          ><Recommended />
+            class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
+            style="position: relative"
+          >
+            <Recommended :P0="item.Recommended" />
             <router-link
-            style="color
-            :black;"
+              style="color: black"
               class="MybtnNews"
               :to="'/products-&-services/products/' + item._id"
             >
@@ -68,7 +59,9 @@
               <!-- <div class="product_code">
                 {{ item.product_code }}
               </div> -->
-              <div class="price"><b>{{ item.price }} OMR</b></div>
+              <div class="price">
+                <b>{{ item.price }} OMR</b>
+              </div>
             </router-link>
           </div>
         </div>
@@ -93,35 +86,36 @@
   </section>
 </template>
 
-
 <script>
 import axios from "axios";
 import Recommended from "@/components/Recommended.vue";
 
 export default {
-    name: "300VRange",
-    data() {
-        return {
-            info: null,
-            loading: true,
-            errored: false,
-            baseurl: "https://binzaher.com/",
-        };
-    },
-    mounted() {
-        axios
-            .get("https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=300V Range")
-            .then((response) => {
-            this.info = response.data.entries;
-            console.log(response.data.entries);
-        })
-            .catch((error) => {
-            console.log(error);
-            this.errored = true;
-        })
-            .finally(() => (this.loading = false));
-    },
-    components: { Recommended }
+  name: "300VRange",
+  data() {
+    return {
+      info: null,
+      loading: true,
+      errored: false,
+      baseurl: "https://binzaher.com/",
+    };
+  },
+  mounted() {
+    axios
+      .get(
+        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=300V Range"
+      )
+      .then((response) => {
+        this.info = response.data.entries;
+        console.log("Product", response.data.entries);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  },
+  components: { Recommended },
 };
 </script>
 
