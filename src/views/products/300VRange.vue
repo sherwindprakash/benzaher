@@ -49,7 +49,7 @@
               col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4
               text-center
             "
-          >
+          ><Recommended />
             <router-link
             style="color
             :black;"
@@ -96,33 +96,32 @@
 
 <script>
 import axios from "axios";
+import Recommended from "@/components/Recommended.vue";
 
 export default {
-  name: "300VRange",
-  data() {
-    return {
-      info: null,
-      loading: true,
-      errored: false,
-      baseurl: "https://binzaher.com/",
-    };
-  },
-
-  mounted() {
-    axios
-      .get(
-        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=300V Range"
-      )
-      .then((response) => {
-        this.info = response.data.entries;
-        console.log(response.data.entries);
-      })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
-  },
+    name: "300VRange",
+    data() {
+        return {
+            info: null,
+            loading: true,
+            errored: false,
+            baseurl: "https://binzaher.com/",
+        };
+    },
+    mounted() {
+        axios
+            .get("https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=300V Range")
+            .then((response) => {
+            this.info = response.data.entries;
+            console.log(response.data.entries);
+        })
+            .catch((error) => {
+            console.log(error);
+            this.errored = true;
+        })
+            .finally(() => (this.loading = false));
+    },
+    components: { Recommended }
 };
 </script>
 
