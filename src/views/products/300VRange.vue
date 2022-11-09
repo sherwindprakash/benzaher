@@ -41,7 +41,7 @@
             class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
             style="position: relative"
           >
-            <Recommended :P0="item.Recommended" />
+            <!-- <Recommended :P0="item.Recommended" /> -->
             <router-link
               style="color: black"
               class="MybtnNews"
@@ -115,7 +115,7 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: { Recommended },
+  //components: { Recommended },
 };
 </script>
 

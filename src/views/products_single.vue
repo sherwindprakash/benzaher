@@ -176,6 +176,17 @@ export default {
         return this.info.price * this.quantity;
       }
     },
+    product_size() {
+      if (this.key === 1) {
+        return "1 L";
+      } else if (this.key === 2) {
+        return "4 L";
+      } else if (this.key === 3) {
+        return "5 L";
+      } else {
+        return "1 L";
+      }
+    },
   },
   components: {},
   methods: {},
@@ -199,6 +210,7 @@ export default {
   },
   methods: {
     AddtoCart: function () {
+      //
       fetch(
         "https://binzaher.com/api/api/collections/save/cart?token=b8766574e1a92b4e6296441248669c",
         {
@@ -208,6 +220,8 @@ export default {
             data: {
               user: this.customersEmail,
               product: this.$route.params.productsid,
+              // Send Values
+              product_size: this.product_size,
               value: this.Value,
               quantity: this.quantity,
               id: this.currentDate(),
