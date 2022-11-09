@@ -131,7 +131,7 @@ export default {
       this.info.forEach((val) => {
         basket_total += Number(val.value);
       });
-      console.log(basket_total);
+      //console.log(basket_total);
       this.basket_total = basket_total;
     },
     //
@@ -187,6 +187,7 @@ export default {
             },
           ],
           //
+
           success_url: "https://google.com",
           cancel_url: "https://youtube.com",
         },
@@ -195,10 +196,12 @@ export default {
       axios
         .request(options)
         .then(function (response) {
-          console.log("session_id", response.data.data.session_id);
-          console.log(response.data.data);
+          //console.log("session_id", response.data.data.session_id);
+          //console.log(response.data.data);
           window.open(
-            "https://checkout.thawani.om/pay/" + response.data.data.session_id,
+            "https://checkout.thawani.om/pay/" +
+              response.data.data.session_id +
+              "?key=s9Om4oEf9vtCTh3Ykma9wBgqOT7Tv7",
             "_self"
           );
         })

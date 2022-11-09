@@ -158,9 +158,9 @@
             />
           </router-link>
           <span v-if="Auth">
-          <!-- Cart -->
-          <Cart />
-          <!--  -->
+            <!-- Cart -->
+            <Cart />
+            <!--  -->
           </span>
 
           <div v-if="Auth">
@@ -332,7 +332,7 @@ export default {
     };
   },
   watch: {},
-components: {
+  components: {
     Cart,
   },
   computed: {
@@ -344,8 +344,6 @@ components: {
     },
   },
   mounted() {
-   
-
     axios
       .get(
         "https://binzaher.com/api/api/cockpit/assets?token=b8766574e1a92b4e6296441248669c&filter[email]=" +
@@ -354,7 +352,7 @@ components: {
       )
       .then((response) => {
         this.ProfilePic = response.data.assets[0];
-        console.log("ProfilePic", response.data.assets[0]);
+        //console.log("ProfilePic", response.data.assets[0]);
       });
 
     axios

@@ -56,7 +56,7 @@ export default {
       )
       .then((response) => {
         this.info = response.data;
-        console.log("Product", response.data);
+        //console.log("Product", response.data);
       })
       .catch((error) => {
         console.log(error);
