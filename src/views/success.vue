@@ -31,7 +31,11 @@
                       v-for="item in product"
                       :key="item"
                     >
-                      <product_delete :product="item._id" />
+                      <product_delete
+                        :product="item._id"
+                        :value="item.value"
+                        :quantity="item.quantity"
+                      />
                     </div>
                     <!--  -->
                   </div>

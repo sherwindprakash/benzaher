@@ -7,6 +7,8 @@ export default {
   },
 
   mounted() {
+    // SAVE DATA
+
     //
     fetch(
       "https://binzaher.com/api/api/collections/remove/cart/?token=b8766574e1a92b4e6296441248669c",
@@ -23,6 +25,8 @@ export default {
   },
   props: {
     product: String,
+    value: String,
+    quantity: String,
   },
 };
 </script>
