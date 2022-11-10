@@ -118,11 +118,16 @@ export default {
       errored: false,
       basket_total: null,
       key: "0",
+      products: [],
     };
   },
   computed: {
     UserEmail() {
       return sessionStorage.getItem("customersEmail");
+    },
+
+    UsercustomersName() {
+      return sessionStorage.getItem("customersName");
     },
 
     //
@@ -136,6 +141,7 @@ export default {
     },
     //
   },
+
   components: {
     product_single,
   },
@@ -147,7 +153,7 @@ export default {
       )
       .then((response) => {
         this.info = response.data.entries;
-        console.log(response.data.entries);
+        console.log("info", response.data.entries);
         this.sumTotal;
       })
       .catch((error) => {
@@ -171,25 +177,27 @@ export default {
           "thawani-api-key": "ROGUWytTjnGkC7hWqA0EwQTbhSO1du",
           "Content-Type": "application/json",
         },
+
         data: {
           client_reference_id: timestamp._value,
+
           //
+
           products: [
             {
-              name: "Mobile Phone",
-              unit_amount: 2000,
-              quantity: 3,
-            },
-            {
-              name: "Kage",
-              unit_amount: 1500,
+              name: timestamp._value,
+              unit_amount: this.basket_total * 1000,
               quantity: 1,
             },
           ],
           //
 
-          success_url: "https://google.com",
-          cancel_url: "https://youtube.com",
+          success_url: "http://localhost:3000/success",
+          cancel_url: "http://localhost:3000/cart",
+
+          metadata: {
+            Customer_name: this.UserEmail,
+          },
         },
       };
 
@@ -198,6 +206,9 @@ export default {
         .then(function (response) {
           //console.log("session_id", response.data.data.session_id);
           //console.log(response.data.data);
+
+          localStorage.setItem("session_id", response.data.data.session_id);
+
           window.open(
             "https://checkout.thawani.om/pay/" +
               response.data.data.session_id +

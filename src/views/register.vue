@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="PageHolder"
-    style="background: radial-gradient(#a42227 0%, #7b151a 100%)"
-  >
+  <div class="PageHolder" style="background: radial-gradient(#a42227 0%, #7b151a 100%)">
     <div class="RegisterHolder grid-sm">
       <div class="columns">
         <div class="column col-12">
@@ -46,9 +43,7 @@
                     style="color: black"
                     required
                   >
-                    <option value="" selected disabled hidden>
-                      Choose an option
-                    </option>
+                    <option value="" selected disabled hidden>Choose an option</option>
                     <option>Male</option>
                     <option>Female</option>
                     <option>Other</option>
@@ -77,18 +72,14 @@
                     style="color: black"
                     required
                   >
-                    <option value="" selected disabled hidden>
-                      Choose an option
-                    </option>
+                    <option value="" selected disabled hidden>Choose an option</option>
                     <option>Adam</option>
                     <option>As Sib</option>
                     <option>Al Ashkharah</option>
                     <option>Al Buraimi</option>
                     <option>Al Hamra</option>
                     <option>Al Jazer</option>
-                    <option>
-                      Al Madina A'Zarqa, formerly known as Blue City
-                    </option>
+                    <option>Al Madina A'Zarqa, formerly known as Blue City</option>
                     <option>Al Suwaiq</option>
                     <option>Bahla</option>
                     <option>Barka</option>
@@ -161,21 +152,13 @@
                     <input v-model="checkbox" type="checkbox" />
                     <i class="form-icon" /> I agree to
                     <router-link
-                      style="
-                        color: white;
-                        padding-right: 4px;
-                        text-decoration: underline;
-                      "
+                      style="color: white; padding-right: 4px; text-decoration: underline"
                       to="/terms-and-conditions"
                       >Terms & conditions</router-link
                     >
                     and
                     <router-link
-                      style="
-                        color: white;
-                        padding-right: 4px;
-                        text-decoration: underline;
-                      "
+                      style="color: white; padding-right: 4px; text-decoration: underline"
                       to="/privacy-policy"
                       >Privacy Policy</router-link
                     >
@@ -193,11 +176,7 @@
                 <p>
                   If you already registered, then please
                   <router-link
-                    style="
-                      color: white;
-                      padding-right: 4px;
-                      text-decoration: underline;
-                    "
+                    style="color: white; padding-right: 4px; text-decoration: underline"
                     to="/login"
                     >Login</router-link
                   >
@@ -256,7 +235,8 @@ export default {
 
       var config = {
         method: "post",
-        url: "https://binzaher.com/api/api/cockpit/saveUser?token=b8766574e1a92b4e6296441248669c",
+        url:
+          "https://binzaher.com/api/api/cockpit/saveUser?token=b8766574e1a92b4e6296441248669c",
         headers: {
           "Content-Type": "application/json",
         },
@@ -282,16 +262,14 @@ export default {
           axios
             .request(options)
             .then(function (response) {
-              console.log(response.data);
+              //console.log(response.data.data.id);
             })
             .catch(function (error) {
               console.error(error);
             });
           //
 
-          notyf.success(
-            "Registration success. please login to access the portal."
-          );
+          notyf.success("Registration success. please login to access the portal.");
           window.setTimeout(function () {
             router.push({
               path: "/login",
