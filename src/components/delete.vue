@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <template></template>
+</template>
 
 <script>
 export default {
@@ -14,9 +16,13 @@ export default {
       "https://binzaher.com/api/api/collections/remove/cart/?token=b8766574e1a92b4e6296441248669c",
       {
         method: "post",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          filter: { _id: this.product },
+          filter: {
+            _id: this.product,
+          },
         }),
       }
     ).then((response) => {});
