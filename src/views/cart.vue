@@ -192,7 +192,7 @@ export default {
           ],
           //
 
-          success_url: "http://localhost:3000/success",
+          success_url: "http://localhost:3000/result",
           cancel_url: "http://localhost:3000/cart",
 
           metadata: {

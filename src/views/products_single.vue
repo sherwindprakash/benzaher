@@ -2,8 +2,8 @@
   <div class="NewsSingle">
     <section v-if="errored">
       <p>
-        We're sorry, we're not able to retrieve this information at the moment, please try
-        back later
+        We're sorry, we're not able to retrieve this information at the moment,
+        please try back later
       </p>
     </section>
 
@@ -45,7 +45,10 @@
 
               <div class="ContHolder">
                 <small>Description</small>
-                <div style="margin-top: 15px" v-html="info.product_description"></div>
+                <div
+                  style="margin-top: 15px"
+                  v-html="info.product_description"
+                ></div>
 
                 <b>Product Size</b>
               </div>
@@ -106,10 +109,16 @@
                     </h2>
                   </div>
                   <!--  -->
-                  <div style="margin-top: 40px" class="text-right" v-if="customersEmail">
+                  <div
+                    style="margin-top: 40px"
+                    class="text-right"
+                    v-if="customersEmail"
+                  >
                     <form id="addtocart-form" @submit.prevent="AddtoCart">
                       <!--  -->
-                      <button class="btn btn-primary" type="submit">Add to Cart</button>
+                      <button class="btn btn-primary" type="submit">
+                        Add to Cart
+                      </button>
                     </form>
                   </div>
                   <div style="margin-top: 40px" class="text-right" v-else>
@@ -215,7 +224,9 @@ export default {
         "https://binzaher.com/api/api/collections/save/cart?token=b8766574e1a92b4e6296441248669c",
         {
           method: "post",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             data: {
               user: this.customersEmail,
@@ -235,7 +246,7 @@ export default {
           console.log(entry);
           window.setTimeout(function () {
             window.location.reload();
-          }, 3000);
+          }, 10);
         });
     },
     //
@@ -256,6 +267,7 @@ sup {
   font-size: 20px;
   padding-left: 5px;
 }
+
 button.ImgBGBut {
   border: none;
   margin: 10px;
@@ -267,6 +279,7 @@ button.ImgBGBut {
   background-color: transparent;
   cursor: pointer;
 }
+
 button.ImgBGBut.active {
   border: none;
   margin: 10px;
@@ -276,6 +289,7 @@ button.ImgBGBut.active {
   background-repeat: no-repeat;
   color: rgb(255, 255, 255);
 }
+
 .pic {
   margin: 5px;
   display: inline-block;
@@ -283,20 +297,24 @@ button.ImgBGBut.active {
   width: 0;
   height: 0;
 }
+
 .arrow-left {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 15px solid #383636;
 }
+
 .PriceHolder {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
 }
+
 img.HolderImage {
   width: 100%;
   height: auto;
 }
+
 .ProdSingle {
   max-width: 1280px;
   margin: auto;
@@ -306,11 +324,13 @@ img.HolderImage {
   padding-bottom: 100px;
   color: black;
 }
+
 svg#Capa_1 {
   width: 90px;
   height: auto;
   display: inline-block;
 }
+
 .HolderX {
   display: flex;
   align-items: center;
@@ -319,6 +339,7 @@ svg#Capa_1 {
   justify-content: center;
   position: relative;
 }
+
 .ContHolder {
   padding: 10px;
 }

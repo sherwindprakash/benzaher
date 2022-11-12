@@ -861,7 +861,7 @@
               col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12
             " style="margin-top: 50px; margin-bottom: 30px">
                     <router-link class="Mybtn" to="/purchase-history">Purchase History</router-link>
-                    <router-link class="Mybtn" to="/service-history">Service History</router-link>
+                    <!-- <router-link class="Mybtn" to="/service-history">Service History</router-link> -->
                 </div>
             </div>
         </div>

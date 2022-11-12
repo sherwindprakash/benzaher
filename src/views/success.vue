@@ -4,8 +4,8 @@
       <div class="CHolder">
         <section v-if="errored">
           <p>
-            We're sorry, we're not able to retrieve this information at the moment, please
-            try back later
+            We're sorry, we're not able to retrieve this information at the
+            moment, please try back later
           </p>
         </section>
 
@@ -18,23 +18,58 @@
                 <div
                   class="column col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
                 >
-                  <div v-if="info.payment_status === 'cancelled'">cancelled</div>
-                  <div v-if="info.payment_status === 'unpaid'">unpaid</div>
-                  <div v-if="info.payment_status === 'paid'"></div>
-
                   <div v-if="info.payment_status === 'cancelled'">
-                    PAID
+                    <div class="text-center">
+                      <img
+                        class="IconImg"
+                        src="../assets/1122-thumb-down.svg"
+                      />
+                      <h2>Payment Cancelled</h2>
+                      <router-link class="btn btn-primary" to="/cart"
+                        >Back to Cart</router-link
+                      >
+                    </div>
+                  </div>
+                  <div v-if="info.payment_status === 'unpaid'">
+                    <div class="text-center">
+                      <img
+                        class="IconImg"
+                        src="../assets/1122-thumb-down.svg"
+                      />
+                      <h2>Payment Unpaid</h2>
+                      <router-link class="btn btn-primary" to="/cart"
+                        >Back to Cart</router-link
+                      >
+                    </div>
+                  </div>
+
+                  <div v-if="info.payment_status === 'paid'">
+                    <div class="text-center">
+                      <img
+                        class="IconImg"
+                        src="../assets/37-approve-checked-simple.svg"
+                      />
+                      <h2>Payment Success</h2>
+                      <router-link
+                        class="btn btn-primary"
+                        to="/purchase-history"
+                        >View Purchase History</router-link
+                      >
+                    </div>
                     <!-- Remove Cart -->
                     <div
                       class="column col-6 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6"
                       style="margin-bottom: 20px"
                       v-for="item in product"
                       :key="item"
+                      hidden
                     >
                       <product_delete
                         :product="item._id"
                         :value="item.value"
                         :quantity="item.quantity"
+                        :product_size="item.product_size"
+                        :productID="item.product"
                       />
                     </div>
                     <!--  -->
@@ -83,7 +118,8 @@ export default {
   mounted() {
     var config = {
       method: "get",
-      url: "https://checkout.thawani.om/api/v1/checkout/session/" + this.UserCAuth,
+      url:
+        "https://checkout.thawani.om/api/v1/checkout/session/" + this.UserCAuth,
       headers: {
         "thawani-api-key": "ROGUWytTjnGkC7hWqA0EwQTbhSO1du",
       },
@@ -143,6 +179,10 @@ export default {
 </script>
 
 <style scoped>
+img.IconImg {
+  width: 100px;
+  height: 100px;
+}
 sup {
   font-weight: 400;
   font-size: 14px;
