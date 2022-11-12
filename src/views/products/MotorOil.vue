@@ -49,7 +49,110 @@
               col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4
               text-center
             "
+            style="position: relative;"
           >
+          
+          <div v-for="model in item.Recommended_Audi" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_BMW" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Cadillac" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Chevrolet" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Chrysler" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Dodge" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Fiat" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Ford" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Geely" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_GMC" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Hyundai" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Honda" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Infiniti" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Jaguar" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Jeep" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Kia" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_LandRover" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Lexus" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Lincoln" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Maserati" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Mazda" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_MercedesBenz" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_MG" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Mini" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Mitsubishi" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Nissan" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Peugeot" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Porsche" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Subaru" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Suzuki" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Toyota" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Volvo" :key="model">
+            <Recommended :P0="model" />
+          </div>
+          <div v-for="model in item.Recommended_Volkswagen" :key="model">
+            <Recommended :P0="model" />
+          </div>
+
+
             <router-link
             style="color
             :black;"
@@ -96,6 +199,7 @@
 
 <script>
 import axios from "axios";
+import Recommended from "@/components/Recommended.vue";
 
 export default {
   name: "300VRange",
@@ -107,7 +211,7 @@ export default {
       baseurl: "https://binzaher.com/",
     };
   },
-
+  components: { Recommended },
   mounted() {
     axios
       .get(

@@ -28,7 +28,7 @@
             <div class="columns" style="color: #383636">
                 <div v-for="logo in info.logo_holder" :key="logo" class="
               column
-              col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6
+              col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4
               text-center
             ">
                     <img :src="'https://binzaher.com' + logo.value.image.path" :alt="logo.value.name" :title="logo.value.name" class="IMGHolder" />
@@ -106,8 +106,8 @@ export default {
 }
 
 img.IMGHolder {
-    width: 300px;
-    height: auto;
+    width: 200px;
+    height: 200px;
     margin: auto;
     display: block;
     margin-top: 30px;

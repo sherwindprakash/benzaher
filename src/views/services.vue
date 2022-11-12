@@ -35,7 +35,14 @@
 
               <div class="column">
                 <div v-if="Auth">
-                  <a href="#single_services">
+                  <a href="#single_services" style="bottom: 30px;
+                  z-index: 1;
+                  color: white;
+                  font-style: italic;
+                  text-transform: uppercase;
+                  border: 2px solid;
+                  padding: 5px;
+                  margin: 0;margin-left: -15px;">
                     <!-- <img
                       :src="
                         'https://binzaher.com/' +
@@ -161,7 +168,16 @@
                                 <label class="form-label" for="selected_service"
                                   >Selecte Service (Required)</label
                                 >
-                                <select
+
+                                <div v-for="list in info.single_services"
+                                :key="list">
+                                <input type="checkbox"  v-model="selected_service" :value="list.value.name"> {{list.value.name}}
+                                  
+                              </div>
+                              
+
+
+                                <!-- <select
                                   v-model="selected_service"
                                   class="form-select"
                                   style="color: black"
@@ -176,7 +192,7 @@
                                   >
                                     {{ list.value.name }}
                                   </option>
-                                </select>
+                                </select> -->
                               </div>
                               <!--  -->
                               <div class="form-group">
@@ -318,6 +334,7 @@ export default {
       myCar: null,
       When_booking_a_service: null,
       checkedNames:null,
+      selected_service:[]
      
     };
   },
@@ -334,6 +351,7 @@ export default {
     customersMobile() {
       return sessionStorage.getItem("customersMobile");
     },
+    
    
   },
   mounted() {
@@ -343,7 +361,7 @@ export default {
       )
       .then((response) => {
         this.info = response.data;
-        console.log(response.data);
+        console.log("LIST Of SERVE",response.data);
       })
       .catch((error) => {
         console.log(error);
