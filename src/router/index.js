@@ -23,7 +23,6 @@ const router = createRouter({
       component: () => import("../views/spare_parts.vue"),
     },
 
-
     {
       path: "/the-company/",
       name: "the-company",
@@ -62,6 +61,13 @@ const router = createRouter({
       name: "ProductsSingle",
       component: () => import("../views/products_single.vue"),
     },
+    // spare_parts
+    {
+      path: "/products-&-services/products/spare_part/:spare_partsid",
+      name: "spare_partsSingle",
+      component: () => import("../views/spare_parts_single.vue"),
+    },
+    //
     {
       path: "/products-&-services/services",
       name: "Services",
@@ -223,7 +229,15 @@ const router = createRouter({
       name: "Cart",
       component: () => import("../views/cart.vue"),
     },
+    {
+      path: "/cart/spare_parts/",
+      name: "Cartspare_parts",
+      component: () => import("../views/cart_spare_parts.vue"),
+    },
   ],
+  scrollBehavior() {
+    document.getElementById("app").scrollIntoView({ behavior: "smooth" });
+  },
 });
 
 export default router;
