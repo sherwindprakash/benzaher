@@ -31,7 +31,9 @@
               col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4
               text-center
             ">
+            <router-link :to="logo.value.url" :title="logo.value.button">
                     <img :src="'https://binzaher.com' + logo.value.image.path" :alt="logo.value.name" :title="logo.value.name" class="IMGHolder" />
+                </router-link>
                     <router-link :to="logo.value.url" class="ProductURL" :title="logo.value.button">
                         {{ logo.value.button }}
                     </router-link>
@@ -118,11 +120,12 @@ a.ProductURL {
     border: 2px solid;
     padding: 5px;
     width: inherit;
-    display: inline-block;
+    display: inline;
     text-align: center;
     font-size: 19px;
     color: #383636;
     margin-top: 10px;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {

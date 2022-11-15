@@ -16,8 +16,8 @@
               src="../assets/logo.svg"
               width="180"
               height="90"
-              alt="Benzaher"
-              title="Benzaher"
+              alt="Bin Zaher"
+              title="Bin Zaher"
             />
           </router-link>
         </div>
