@@ -1,8 +1,8 @@
 <template>
   <section v-if="errored">
     <p>
-      We're sorry, we're not able to retrieve this information at the moment,
-      please try back later
+      We're sorry, we're not able to retrieve this information at the moment, please try
+      back later
     </p>
   </section>
 
@@ -24,171 +24,57 @@
             text-align: center;
           "
         >
-          {{ info.title_en }}
+          Motul
         </h1>
 
         <div class="columns" style="color: #383636">
           <div class="column col-12 text-center">
-            <img
-              :src="
-                'https://binzaher.com' + info.logo_holder[0].value.image.path
-              "
-              :alt="info.logo_holder[0].value.name"
-              :title="info.logo_holder[0].value.name"
-              class="IMGHolder"
-            />
-          </div>
-        </div>
-
-        <div class="columns" style="color: #383636">
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/300VRange"
-              class="
-                ProductURL
-                column
-                col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3
-              "
-              title="300V Range"
-            >
-              300V Range
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/Additives"
-              class="ProductURL"
-              title="Additives"
-            >
-              Additives
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/BrakeOil"
-              class="ProductURL"
-              title="Brake Oil"
-            >
-              Brake Oil
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/CarCare"
-              class="ProductURL"
-              title="Car Care"
-            >
-              Car Care
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/Coolant"
-              class="ProductURL"
-              title="Coolant"
-            >
-              Coolant
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/MotorOil"
-              class="ProductURL"
-              title="Motor Oil"
-            >
-              Motor Oil
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/Automotive"
-              class="ProductURL"
-              title="Automotive"
-            >
-              Automotive
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/MarineOil"
-              class="ProductURL"
-              title="Marine Oil"
-            >
-              Marine Oil
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/TransmissionOil"
-              class="ProductURL"
-              title="Transmission Oil"
-            >
-              Transmission Oil
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/ForkOil"
-              class="ProductURL"
-              title="Fork Oil"
-            >
-              Fork Oil
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/Maintenance&MCCare"
-              class="ProductURL"
-              title="Maintenance & MC Care"
-            >
-              Maintenance & MC Care
-            </router-link>
-          </div>
-          <div
-            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-          >
-            <router-link
-              to="/products-&-services/products/HydraulicOil"
-              class="ProductURL"
-              title="Hydraulic Oil"
-            >
-              Hydraulic Oil
-            </router-link>
+            <img src="../assets/products/motul-logo.svg" class="IMGHolder" />
           </div>
         </div>
 
         <div
           class="columns"
-          style="color: #383636; text-align: right; margin-top: 40px"
+          style="
+            display: flex;
+            color: rgb(56, 54, 54);
+            justify-content: space-between;
+            max-width: 800px;
+            margin: auto;
+          "
         >
-          <div class="column col-12">
+          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <router-link
-              to="/products-&-services/products/"
-              class="Back"
-              title="Back"
+              to="/products-&-services/products/motul/categores"
+              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              title="300V Range"
             >
+              Automotive
+            </router-link>
+          </div>
+          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <router-link
+              to="/products-&-services/products/motul/services"
+              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              title="300V Range"
+            >
+              Motorcycle
+            </router-link>
+          </div>
+          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <router-link
+              to="/products-&-services/products/motul/services"
+              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              title="300V Range"
+            >
+              Marine
+            </router-link>
+          </div>
+        </div>
+
+        <div class="columns" style="color: #383636; text-align: right; margin-top: 40px">
+          <div class="column col-12">
+            <router-link to="/products-&-services/products/" class="Back" title="Back">
               <span class="pic arrow-left"></span>
               Back
             </router-link>

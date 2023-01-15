@@ -57,6 +57,31 @@ const router = createRouter({
       component: () => import("../views/products-motul.vue"),
     },
     {
+      path: "/products-&-services/products/motul/categores",
+      name: "Motul List",
+      component: () => import("../views/products-motul-list.vue"),
+    },
+    {
+      path: "/products-&-services/products/kn",
+      name: "KN",
+      component: () => import("../views/products-k&n.vue"),
+    },
+    {
+      path: "/products-&-services/products/kn/categores",
+      name: "Motul List",
+      component: () => import("../views/products-k&n-list.vue"),
+    },
+    {
+      path: "/products-&-services/products/spare-parts",
+      name: "spare-parts",
+      component: () => import("../views/products-spare-parts.vue"),
+    },
+    {
+      path: "/products-&-services/products/spare-parts/categores",
+      name: "spare-parts List",
+      component: () => import("../views/products-spare-parts-list.vue"),
+    },
+    {
       path: "/products-&-services/products/:productsid",
       name: "ProductsSingle",
       component: () => import("../views/products_single.vue"),
@@ -160,65 +185,11 @@ const router = createRouter({
     },
     //
     {
-      path: "/products-&-services/products/300VRange",
-      name: "ProductsSingle300VRange",
-      component: () => import("../views/products/300VRange.vue"),
+      path: "/products-&-services/products/:product",
+      name: "product",
+      component: () => import("../views/products/product.vue"),
     },
-    {
-      path: "/products-&-services/products/Additives",
-      name: "ProductsSingleAdditives",
-      component: () => import("../views/products/Additives.vue"),
-    },
-    {
-      path: "/products-&-services/products/BrakeOil",
-      name: "ProductsSingleBrakeOil",
-      component: () => import("../views/products/BrakeOil.vue"),
-    },
-    {
-      path: "/products-&-services/products/CarCare",
-      name: "ProductsSingleCarCare",
-      component: () => import("../views/products/CarCare.vue"),
-    },
-    {
-      path: "/products-&-services/products/Coolant",
-      name: "ProductsSingleCoolant",
-      component: () => import("../views/products/Coolant.vue"),
-    },
-    {
-      path: "/products-&-services/products/MotorOil",
-      name: "ProductsSingleMotorOil",
-      component: () => import("../views/products/MotorOil.vue"),
-    },
-    {
-      path: "/products-&-services/products/Automotive",
-      name: "ProductsSingleAutomotive",
-      component: () => import("../views/products/Automotive.vue"),
-    },
-    {
-      path: "/products-&-services/products/MarineOil",
-      name: "ProductsSingleMarineOil",
-      component: () => import("../views/products/MarineOil.vue"),
-    },
-    {
-      path: "/products-&-services/products/TransmissionOil",
-      name: "ProductsSingleTransmissionOil",
-      component: () => import("../views/products/TransmissionOil.vue"),
-    },
-    {
-      path: "/products-&-services/products/ForkOil",
-      name: "ProductsSingleForkOil",
-      component: () => import("../views/products/ForkOil.vue"),
-    },
-    {
-      path: "/products-&-services/products/Maintenance&MCCare",
-      name: "ProductsSingleMaintenance&MCCare",
-      component: () => import("../views/products/Maintenance&MCCare.vue"),
-    },
-    {
-      path: "/products-&-services/products/HydraulicOil",
-      name: "ProductsSingleHydraulicOil",
-      component: () => import("../views/products/HydraulicOil.vue"),
-    },
+    //
     {
       path: "/Search",
       name: "Search",

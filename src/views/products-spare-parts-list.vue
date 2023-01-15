@@ -24,50 +24,30 @@
             text-align: center;
           "
         >
-          PRODUCTS
+          Motul
         </h1>
 
         <div class="columns" style="color: #383636">
-          <div
-            class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
-          >
-            <router-link to="/products-&-services/products/motul/">
-              <img src="../assets/products/motul-logo.svg" class="IMGHolder" />
-            </router-link>
-            <router-link to="/products-&-services/products/motul/" class="ProductURL">
-              Categores
-            </router-link>
+          <div class="column col-12 text-center">
+            <img src="../assets/products/motul-logo.svg" class="IMGHolder" />
           </div>
+        </div>
 
-          <div
-            class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
-          >
-            <router-link to="/products-&-services/products/kn/">
-              <img src="../assets/products/K--N-logo.svg" class="IMGHolder" />
-            </router-link>
-            <router-link to="/products-&-services/products/kn/" class="ProductURL">
-              Categores
-            </router-link>
-          </div>
-
-          <div
-            class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
-          >
-            <router-link to="/products-&-services/products/spare-parts/">
-              <img src="../assets/products/car-with-spare-tire.svg" class="IMGHolder" />
-            </router-link>
+        <div class="columns" style="color: #383636">
+          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <router-link
-              to="/products-&-services/products/spare-parts/"
-              class="ProductURL"
+              to="/products-&-services/products/300VRange"
+              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              title="300V Range"
             >
-              Categores
+              300V Range
             </router-link>
           </div>
         </div>
 
         <div class="columns" style="color: #383636; text-align: right; margin-top: 40px">
           <div class="column col-12">
-            <router-link to="/" class="Back" title="Back">
+            <router-link to="/products-&-services/products/" class="Back" title="Back">
               <span class="pic arrow-left"></span>
               Back
             </router-link>
@@ -90,6 +70,7 @@ export default {
       baseurl: "https://binzaher.com/",
     };
   },
+
   mounted() {
     axios
       .get(
@@ -105,7 +86,6 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  components: {},
 };
 </script>
 
@@ -117,13 +97,11 @@ export default {
   width: 0;
   height: 0;
 }
-
 .arrow-left {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 15px solid #383636;
 }
-
 .productsHolder {
   max-width: 1280px;
   margin: auto;
@@ -131,35 +109,29 @@ export default {
   padding-right: 20px;
   padding-top: 80px;
   padding-bottom: 100px;
-  color: black;
 }
-
 img.IMGHolder {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: auto;
   margin: auto;
   display: block;
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
 a.ProductURL {
   border: 2px solid;
   padding: 5px;
-  width: inherit;
-  display: inline;
+  width: 100%;
+  display: block;
   text-align: center;
   font-size: 19px;
   color: #383636;
   margin-top: 10px;
-  text-decoration: none;
 }
-
 @media only screen and (max-width: 600px) {
   .productsHolder {
     padding-top: 20px;
   }
-
   img.IMGHolder {
     width: 90%;
     height: auto;
