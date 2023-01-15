@@ -192,8 +192,8 @@ export default {
           ],
           //
 
-          success_url: "http://localhost:3000/result",
-          cancel_url: "http://localhost:3000/cart",
+          success_url: "https://binzaher.com/result",
+          cancel_url: "https://binzaher.com/cart",
 
           metadata: {
             Customer_name: this.UserEmail,
