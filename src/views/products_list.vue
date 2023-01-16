@@ -14,11 +14,25 @@
 
       <div v-else>
         <div class="ProdSingle">
-          {{ this.$route.params.productsbrand }}
+          <div style="padding-bottom: 50px">
+            <h3 style="text-transform: uppercase; font-weight: 700; display: inline">
+              {{ this.$route.params.productsbrand }}
+            </h3>
+            <h4
+              style="
+                text-transform: uppercase;
+                font-weight: 400;
+                display: inline;
+                padding-left: 10px;
+              "
+            >
+              {{ this.$route.params.productssub_category }}
+            </h4>
+            <h5 style="text-transform: capitalize">
+              {{ this.$route.params.productsproduct_category_name.replaceAll("_", " ") }}
+            </h5>
+          </div>
 
-          {{ this.$route.params.productssub_category }}
-
-          {{ this.$route.params.productsproduct_category_name }}
           <div class="columns" style="padding-bottom: 100px">
             <div
               v-for="item in info"
@@ -44,6 +58,7 @@
                     background-size: contain;
                     background-position: center;
                     background-repeat: no-repeat;
+                    margin-bottom: 15px;
                   "
                   class="SlidBGImage"
                   v-bind:style="{
