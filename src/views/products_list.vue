@@ -14,6 +14,11 @@
 
       <div v-else>
         <div class="ProdSingle">
+          {{ this.$route.params.productsbrand }}
+
+          {{ this.$route.params.productssub_category }}
+
+          {{ this.$route.params.productsproduct_category_name }}
           <div class="columns" style="padding-bottom: 100px">
             <div
               v-for="item in info"
@@ -21,21 +26,26 @@
               class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
               style="position: relative"
             >
-              <router-link style="color: black" class="MybtnNews">
-                <div
-                  class="SlidBGImage"
-                  v-bind:style="{
-                    backgroundImage: 'url(' + item.product_image.path + ')',
-                  }"
-                ></div>
-                <div>{{ item.product_name }}</div>
-                <!-- <div class="product_code">
+              <div
+                style="
+                  height: 300px;
+                  background-size: contain;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                "
+                class="SlidBGImage"
+                v-bind:style="{
+                  backgroundImage:
+                    'url(' + `https://binzaher.com/` + item.product_image.path + ')',
+                }"
+              ></div>
+              <div>{{ item.product_name }}</div>
+              <!-- <div class="product_code">
                   {{ item.product_code }}
                 </div> -->
-                <div class="price">
-                  <b>{{ item.price }} OMR</b>
-                </div>
-              </router-link>
+              <div class="price">
+                <b>{{ item.price }} OMR</b>
+              </div>
             </div>
           </div>
         </div>
@@ -47,7 +57,7 @@
 <script>
 import axios from "axios";
 import router from "../router";
-var notyf = new Notyf();
+//var notyf = new Notyf();
 
 export default {
   data() {
