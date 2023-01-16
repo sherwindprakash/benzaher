@@ -45,7 +45,7 @@
         >
           <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <router-link
-              to="/products-&-services/products/motul/categores"
+              to="/products-&-services/products/motul/automotive"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
               title="300V Range"
             >
@@ -54,7 +54,7 @@
           </div>
           <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <router-link
-              to="/products-&-services/products/motul/services"
+              to="/products-&-services/products/motul/motorcycle"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
               title="300V Range"
             >
@@ -63,7 +63,7 @@
           </div>
           <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <router-link
-              to="/products-&-services/products/motul/services"
+              to="/products-&-services/products/motul/marine"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
               title="300V Range"
             >

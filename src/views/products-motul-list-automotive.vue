@@ -34,13 +34,17 @@
         </div>
 
         <div class="columns" style="color: #383636">
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div
+            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
+            v-for="(make, index) in makes"
+            :key="index"
+          >
             <router-link
-              to="/products-&-services/products/300VRange"
+              :to="`/products-&-services/products/motul/automotive/` + make"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
               title="300V Range"
             >
-              300V Range
+              {{ make.replaceAll("_", " ") }}
             </router-link>
           </div>
         </div>
@@ -71,14 +75,22 @@ export default {
     };
   },
 
+  computed: {
+    makes() {
+      const makes = new Set();
+      this.info.forEach((car) => makes.add(car.product_category_name));
+      return Array.from(makes);
+    },
+  },
+
   mounted() {
     axios
       .get(
-        "https://binzaher.com/api/api/singletons/get/products?token=b8766574e1a92b4e6296441248669c"
+        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c"
       )
       .then((response) => {
-        this.info = response.data;
-        console.log(response.data);
+        this.info = response.data.entries;
+        console.log(response.data.entries);
       })
       .catch((error) => {
         console.log(error);
@@ -127,6 +139,7 @@ a.ProductURL {
   font-size: 19px;
   color: #383636;
   margin-top: 10px;
+  text-transform: capitalize;
 }
 @media only screen and (max-width: 600px) {
   .productsHolder {

@@ -2,8 +2,8 @@
   <div class="NewsSingle">
     <section v-if="errored">
       <p>
-        We're sorry, we're not able to retrieve this information at the moment,
-        please try back later
+        We're sorry, we're not able to retrieve this information at the moment, please try
+        back later
       </p>
     </section>
 
@@ -45,10 +45,7 @@
 
               <div class="ContHolder">
                 <small>Description</small>
-                <div
-                  style="margin-top: 15px"
-                  v-html="info.product_description"
-                ></div>
+                <div style="margin-top: 15px" v-html="info.product_description"></div>
 
                 <b>Product Size</b>
               </div>
@@ -109,16 +106,10 @@
                     </h2>
                   </div>
                   <!--  -->
-                  <div
-                    style="margin-top: 40px"
-                    class="text-right"
-                    v-if="customersEmail"
-                  >
+                  <div style="margin-top: 40px" class="text-right" v-if="customersEmail">
                     <form id="addtocart-form" @submit.prevent="AddtoCart">
                       <!--  -->
-                      <button class="btn btn-primary" type="submit">
-                        Add to Cart
-                      </button>
+                      <button class="btn btn-primary" type="submit">Add to Cart</button>
                     </form>
                   </div>
                   <div style="margin-top: 40px" class="text-right" v-else>
@@ -201,10 +192,18 @@ export default {
   methods: {},
   mounted() {
     axios
+      // .get(
+      //   "https://binzaher.com/api/api/collections/entry/products/" +
+      //     this.$route.params.productsid +
+      //     "?token=b8766574e1a92b4e6296441248669c"
+      // )
       .get(
-        "https://binzaher.com/api/api/collections/entry/products/" +
-          this.$route.params.productsid +
-          "?token=b8766574e1a92b4e6296441248669c"
+        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=" +
+          this.$route.params.productsbrand +
+          "&filter[sub_category]=" +
+          this.$route.params.productssub_category +
+          "&filter[product_category_name]=" +
+          this.$route.params.productsproduct_category_name
       )
       .then((response) => {
         this.info = response.data;

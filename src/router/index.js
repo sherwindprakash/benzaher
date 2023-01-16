@@ -57,9 +57,15 @@ const router = createRouter({
       component: () => import("../views/products-motul.vue"),
     },
     {
-      path: "/products-&-services/products/motul/categores",
-      name: "Motul List",
-      component: () => import("../views/products-motul-list.vue"),
+      path: "/products-&-services/products/motul/automotive",
+      name: "Motul List automotive",
+      component: () => import("../views/products-motul-list-automotive.vue"),
+    },
+
+    {
+      path: "/products-&-services/products/:productsbrand/:productssub_category/:productsproduct_category_name",
+      name: "ProductsSingleListNEW",
+      component: () => import("../views/products_list.vue"),
     },
     {
       path: "/products-&-services/products/kn",
@@ -81,11 +87,7 @@ const router = createRouter({
       name: "spare-parts List",
       component: () => import("../views/products-spare-parts-list.vue"),
     },
-    {
-      path: "/products-&-services/products/:productsid",
-      name: "ProductsSingle",
-      component: () => import("../views/products_single.vue"),
-    },
+
     // spare_parts
     {
       path: "/products-&-services/products/spare_part/:spare_partsid",
