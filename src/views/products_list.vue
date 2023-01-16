@@ -26,26 +26,37 @@
               class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
               style="position: relative"
             >
-              <div
-                style="
-                  height: 300px;
-                  background-size: contain;
-                  background-position: center;
-                  background-repeat: no-repeat;
+              <router-link
+                :to="
+                  '/products-&-services/products/' +
+                  this.$route.params.productsbrand +
+                  '/' +
+                  this.$route.params.productssub_category +
+                  '/' +
+                  this.$route.params.productsproduct_category_name +
+                  '/' +
+                  item._id
                 "
-                class="SlidBGImage"
-                v-bind:style="{
-                  backgroundImage:
-                    'url(' + `https://binzaher.com/` + item.product_image.path + ')',
-                }"
-              ></div>
-              <div>{{ item.product_name }}</div>
-              <!-- <div class="product_code">
-                  {{ item.product_code }}
-                </div> -->
-              <div class="price">
-                <b>{{ item.price }} OMR</b>
-              </div>
+              >
+                <div
+                  style="
+                    height: 300px;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  "
+                  class="SlidBGImage"
+                  v-bind:style="{
+                    backgroundImage:
+                      'url(' + `https://binzaher.com/` + item.product_image.path + ')',
+                  }"
+                ></div>
+                <div>{{ item.product_name }}</div>
+
+                <div class="price">
+                  <b>{{ item.price }} OMR</b>
+                </div>
+              </router-link>
             </div>
           </div>
         </div>
