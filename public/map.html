@@ -3,6 +3,11 @@
   <head>
     <title>Custom Icons Tutorial - Leaflet</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -48,8 +53,40 @@
   <body>
     <div id="map"></div>
 
+    <div id="app">
+      {{ message }}
+    </div>
+
+
     <script>
 
+var data = '';
+
+var config = {
+  method: 'get',
+  url: 'https://binzaher.com/api/api/singletons/get/services?token=b8766574e1a92b4e6296441248669c',
+  headers: { },
+  maxRedirects: 0,
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(response.data);
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: ''
+  }
+})
+
+
+// 
 
 
       var map = L.map("map").setView([23.5389557, 57.8138435], 10);

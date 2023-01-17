@@ -165,7 +165,7 @@ a.ProductURL {
     color: #383636;
     margin-top: 10px;
     text-transform: capitalize;
-    height: 100%;
+    height:auto;
     display: flex;
     justify-content: center;
     align-items: center;
