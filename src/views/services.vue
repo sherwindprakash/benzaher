@@ -1,8 +1,8 @@
 <template>
   <section v-if="errored">
     <p>
-      We're sorry, we're not able to retrieve this information at the moment,
-      please try back later
+      We're sorry, we're not able to retrieve this information at the moment, please try
+      back later
     </p>
   </section>
 
@@ -25,7 +25,7 @@
                 color: #ababab;
               "
             >
-              {{ info.title_en }} 
+              {{ info.title_en }}
             </h1>
             <div v-html="info.content_en"></div>
             <!--  -->
@@ -35,14 +35,20 @@
 
               <div class="column">
                 <div v-if="Auth">
-                  <a href="#single_services" style="bottom: 30px;
-                  z-index: 1;
-                  color: white;
-                  font-style: italic;
-                  text-transform: uppercase;
-                  border: 2px solid;
-                  padding: 5px;
-                  margin: 0;margin-left: -15px;">
+                  <a
+                    href="#single_services"
+                    style="
+                      bottom: 30px;
+                      z-index: 1;
+                      color: white;
+                      font-style: italic;
+                      text-transform: uppercase;
+                      border: 2px solid;
+                      padding: 5px;
+                      margin: 0;
+                      margin-left: -15px;
+                    "
+                  >
                     <!-- <img
                       :src="
                         'https://binzaher.com/' +
@@ -54,17 +60,26 @@
                   </a>
                 </div>
                 <div v-else>
-                  <router-link class="User" to="/register">
+                  <router-link
+                    class="User"
+                    to="/register"
+                    style="
+                      bottom: 30px;
+                      z-index: 1;
+                      color: white;
+                      font-style: italic;
+                      text-transform: uppercase;
+                      border: 2px solid;
+                      padding: 5px;
+                      margin: 0px 0px 0px -15px;
+                    "
+                  >
                     Book Now
                   </router-link>
                 </div>
 
                 <div class="modal" id="single_services">
-                  <a
-                    class="modal-overlay"
-                    href="#modals"
-                    aria-label="Close"
-                  ></a>
+                  <a class="modal-overlay" href="#modals" aria-label="Close"></a>
                   <div class="modal-container" role="document">
                     <div class="modal-header">
                       <a
@@ -103,21 +118,14 @@
                               <!--  -->
 
                               <div
-                                v-if="
-                                  When_booking_a_service ===
-                                  'Visit Service Center'
-                                "
+                                v-if="When_booking_a_service === 'Visit Service Center'"
                               >
-                                *where the user can select the branch they would
-                                like to go to, but Pre-select for them the
-                                nearest branch to them.
+                                *where the user can select the branch they would like to
+                                go to, but Pre-select for them the nearest branch to them.
                                 <!-- form radio control -->
                                 <div
                                   class="form-group"
-                                  style="
-                                    display: flex;
-                                    justify-content: space-evenly;
-                                  "
+                                  style="display: flex; justify-content: space-evenly"
                                 >
                                   <label class="form-radio">
                                     <input
@@ -150,17 +158,14 @@
                                 </div>
                               </div>
 
-                              <div
-                                v-if="When_booking_a_service === 'KLIK Service'"
-                              >
-                                *Where the website will take the user’s
-                                location, and the Klik Van will come to them.
+                              <div v-if="When_booking_a_service === 'KLIK Service'">
+                                *Where the website will take the user’s location, and the
+                                Klik Van will come to them.
 
                                 <iframe
-              style="width: 100%; border: none; height: 400px"
-              src="../location/index.html"
-            ></iframe>
-
+                                  style="width: 100%; border: none; height: 400px"
+                                  src="../location/index.html"
+                                ></iframe>
                               </div>
 
                               <!--  -->
@@ -169,13 +174,14 @@
                                   >Selecte Service (Required)</label
                                 >
 
-                                <div v-for="list in info.single_services"
-                                :key="list">
-                                <input type="checkbox"  v-model="selected_service" :value="list.value.name"> {{list.value.name}}
-                                  
-                              </div>
-                              
-
+                                <div v-for="list in info.single_services" :key="list">
+                                  <input
+                                    type="checkbox"
+                                    v-model="selected_service"
+                                    :value="list.value.name"
+                                  />
+                                  {{ list.value.name }}
+                                </div>
 
                                 <!-- <select
                                   v-model="selected_service"
@@ -263,9 +269,7 @@
                               </div>
                               <!--  -->
                               <div class="form-group">
-                                <label class="form-label" for="Your_Message"
-                                  >Note</label
-                                >
+                                <label class="form-label" for="Your_Message">Note</label>
                                 <textarea
                                   rows="2"
                                   id="Your_Message"
@@ -279,9 +283,7 @@
                               <!--  -->
                             </div>
                             <div class="column col-12 text-right">
-                              <button class="BtnSend" type="submit">
-                                Book Now
-                              </button>
+                              <button class="BtnSend" type="submit">Book Now</button>
                             </div>
                           </div>
                         </form>
@@ -293,7 +295,6 @@
 
               <!--  -->
             </div>
-           
           </div>
           <div
             class="column col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6"
@@ -333,9 +334,8 @@ export default {
       User: null,
       myCar: null,
       When_booking_a_service: null,
-      checkedNames:null,
-      selected_service:[]
-     
+      checkedNames: null,
+      selected_service: [],
     };
   },
   computed: {
@@ -351,8 +351,6 @@ export default {
     customersMobile() {
       return sessionStorage.getItem("customersMobile");
     },
-    
-   
   },
   mounted() {
     axios
@@ -361,7 +359,7 @@ export default {
       )
       .then((response) => {
         this.info = response.data;
-        console.log("LIST Of SERVE",response.data);
+        console.log("LIST Of SERVE", response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -401,15 +399,16 @@ export default {
           email: this.customersEmail,
           mobile: this.customersMobile,
           name: this.customersName,
-          When_booking_a_service:this.When_booking_a_service +" / "+ this.checkedNames,
+          When_booking_a_service: this.When_booking_a_service + " / " + this.checkedNames,
           longitude: sessionStorage.getItem("longitude"),
-          latitude : sessionStorage.getItem("latitude")
+          latitude: sessionStorage.getItem("latitude"),
         },
       });
 
       var config = {
         method: "post",
-        url: "https://binzaher.com/api/api/collections/save/service_booking?token=b8766574e1a92b4e6296441248669c",
+        url:
+          "https://binzaher.com/api/api/collections/save/service_booking?token=b8766574e1a92b4e6296441248669c",
         headers: {
           "Content-Type": "application/json",
         },
@@ -433,7 +432,6 @@ export default {
 
       //
     },
-    
   },
 };
 </script>

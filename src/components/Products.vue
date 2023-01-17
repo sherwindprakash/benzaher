@@ -36,6 +36,8 @@
                   '/' +
                   entries.sub_category +
                   '/' +
+                  entries.product_category_name +
+                  '/' +
                   entries._id
                 "
               >
