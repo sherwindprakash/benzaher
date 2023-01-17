@@ -1,8 +1,8 @@
 <template>
   <section v-if="errored">
     <p>
-      We're sorry, we're not able to retrieve this information at the moment,
-      please try back later
+      We're sorry, we're not able to retrieve this information at the moment, please try
+      back later
     </p>
   </section>
 
@@ -30,7 +30,14 @@
             <SplideSlide v-for="entries in info" :key="entries">
               <router-link
                 class="MybtnNews"
-                :to="'/products-&-services/products/' + entries._id"
+                :to="
+                  '/products-&-services/products/' +
+                  entries.brand +
+                  '/' +
+                  entries.sub_category +
+                  '/' +
+                  entries._id
+                "
               >
                 <div
                   v-for="image in entries.product_image"
@@ -116,7 +123,7 @@ export default {
       )
       .then((response) => {
         this.info = response.data.entries;
-        console.log(response.data.entries);
+        console.log("Single", response.data.entries);
       })
       .catch((error) => {
         console.log(error);

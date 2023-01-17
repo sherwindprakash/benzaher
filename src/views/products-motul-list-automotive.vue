@@ -24,7 +24,7 @@
             text-align: center;
           "
         >
-          Motul
+          Motul - Automotive
         </h1>
 
         <div class="columns" style="color: #383636">
@@ -33,7 +33,10 @@
           </div>
         </div>
 
-        <div class="columns" style="color: #383636">
+        <div
+          class="columns"
+          style="color: #383636; display: flex; flex-direction: row-reverse"
+        >
           <div
             class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
             v-for="(make, index) in makes"
@@ -42,7 +45,6 @@
             <router-link
               :to="`/products-&-services/products/motul/automotive/` + make"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
             >
               {{ make.replaceAll("_", " ") }}
             </router-link>
@@ -51,7 +53,11 @@
 
         <div class="columns" style="color: #383636; text-align: right; margin-top: 40px">
           <div class="column col-12">
-            <router-link to="/products-&-services/products/" class="Back" title="Back">
+            <router-link
+              to="/products-&-services/products/motul"
+              class="Back"
+              title="Back"
+            >
               <span class="pic arrow-left"></span>
               Back
             </router-link>
@@ -86,7 +92,7 @@ export default {
   mounted() {
     axios
       .get(
-        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c"
+        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=motul&filter[sub_category]=automotive"
       )
       .then((response) => {
         this.info = response.data.entries;

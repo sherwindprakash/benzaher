@@ -22,32 +22,69 @@
             margin-top: 20px;
             color: rgb(56 54 54);
             text-align: center;
+            margin-bottom: 50px;
           "
         >
-          Motul
+          Spare Parts
+          <h3
+            style="
+              text-transform: uppercase;
+              font-weight: 700;
+              display: inline;
+              color: rgb(56 54 54);
+            "
+          >
+            - {{ this.$route.params.productssub_category.replaceAll("_", " ") }}
+          </h3>
         </h1>
 
-        <div class="columns" style="color: #383636">
-          <div class="column col-12 text-center">
-            <img src="../assets/products/motul-logo.svg" class="IMGHolder" />
-          </div>
-        </div>
-
-        <div class="columns" style="color: #383636">
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="columns" style="padding-bottom: 100px">
+          <div
+            v-for="item in info"
+            :key="item"
+            class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
+            style="position: relative"
+          >
             <router-link
-              to="/products-&-services/products/300VRange"
-              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
+              :to="
+                '/products-&-services/products/spare-parts/' +
+                item.sub_category +
+                '/' +
+                item.product_category_name +
+                '/' +
+                item._id
+              "
             >
-              300V Range
+              <div
+                style="
+                  height: 300px;
+                  background-size: contain;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  margin-bottom: 15px;
+                "
+                class="SlidBGImage"
+                v-bind:style="{
+                  backgroundImage:
+                    'url(' + `https://binzaher.com/` + item.product_image.path + ')',
+                }"
+              ></div>
+              <div>{{ item.product_name }}</div>
+
+              <div class="price">
+                <b>{{ item.price }} OMR</b>
+              </div>
             </router-link>
           </div>
         </div>
 
         <div class="columns" style="color: #383636; text-align: right; margin-top: 40px">
           <div class="column col-12">
-            <router-link to="/products-&-services/products/" class="Back" title="Back">
+            <router-link
+              to="/products-&-services/products/spare-parts"
+              class="Back"
+              title="Back"
+            >
               <span class="pic arrow-left"></span>
               Back
             </router-link>
@@ -74,11 +111,12 @@ export default {
   mounted() {
     axios
       .get(
-        "https://binzaher.com/api/api/singletons/get/products?token=b8766574e1a92b4e6296441248669c"
+        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=spare_parts&filter[sub_category]=" +
+          this.$route.params.productssub_category
       )
       .then((response) => {
-        this.info = response.data;
-        console.log(response.data);
+        this.info = response.data.entries;
+        console.log(this.$route.params.productssub_category, response.data.entries);
       })
       .catch((error) => {
         console.log(error);

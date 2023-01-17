@@ -28,10 +28,6 @@
               <table class="table">
                 <tbody>
                   <tr>
-                    <td><b>Product Type</b></td>
-                    <td>{{ info.brand }}</td>
-                  </tr>
-                  <tr>
                     <td><b>Product Code</b></td>
                     <td>{{ info.product_code }}</td>
                   </tr>
@@ -46,36 +42,10 @@
               <div class="ContHolder">
                 <small>Description</small>
                 <div style="margin-top: 15px" v-html="info.product_description"></div>
-
-                <b>Product Size</b>
               </div>
 
               <div class="columns">
                 <div class="column">
-                  <button
-                    class="ImgBGBut"
-                    @click="key = 1"
-                    :class="{ active: key == 1 }"
-                    title="1L"
-                  >
-                    1L
-                  </button>
-                  <button
-                    class="ImgBGBut"
-                    @click="key = 2"
-                    :class="{ active: key == 2 }"
-                    title="4L"
-                  >
-                    4L
-                  </button>
-                  <button
-                    class="ImgBGBut"
-                    @click="key = 3"
-                    :class="{ active: key == 3 }"
-                    title="5L"
-                  >
-                    5L
-                  </button>
                   <!-- quantity -->
 
                   <div class="form-group ContHolder">
@@ -126,15 +96,29 @@
                 style="color: #383636; text-align: right; margin-top: 40px"
               >
                 <div class="column col-12">
-                  <router-link
+                  <!-- <router-link
                     style="color: black"
-                    to="/products-&-services/products/"
+                    :to="
+                      '/products-&-services/products/' +
+                      this.$route.params.productsbrand +
+                      '/' +
+                      this.$route.params.productssub_category +
+                      '/' +
+                      this.$route.params.productsproduct_category_name
+                    "
                     class="Back"
                     title="Back"
                   >
                     <span class="pic arrow-left"></span>
                     Back
-                  </router-link>
+                  </router-link> -->
+
+                  <button
+                    onclick="history.back()"
+                    style="background-color: white; border: none; cursor: pointer"
+                  >
+                    <span class="pic arrow-left"></span> Back
+                  </button>
                 </div>
               </div>
             </div>
@@ -192,18 +176,10 @@ export default {
   methods: {},
   mounted() {
     axios
-      // .get(
-      //   "https://binzaher.com/api/api/collections/entry/products/" +
-      //     this.$route.params.productsid +
-      //     "?token=b8766574e1a92b4e6296441248669c"
-      // )
       .get(
-        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=" +
-          this.$route.params.productsbrand +
-          "&filter[sub_category]=" +
-          this.$route.params.productssub_category +
-          "&filter[product_category_name]=" +
-          this.$route.params.productsproduct_category_name
+        "https://binzaher.com/api/api/collections/entry/products/" +
+          this.$route.params.id +
+          "?token=b8766574e1a92b4e6296441248669c"
       )
       .then((response) => {
         this.info = response.data;
@@ -229,7 +205,7 @@ export default {
           body: JSON.stringify({
             data: {
               user: this.customersEmail,
-              product: this.$route.params.productsid,
+              product: this.$route.params.id,
               // Send Values
               product_size: this.product_size,
               value: this.Value,

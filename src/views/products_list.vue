@@ -74,6 +74,27 @@
               </router-link>
             </div>
           </div>
+
+          <div
+            class="columns"
+            style="color: #383636; text-align: right; margin-top: 40px"
+          >
+            <div class="column col-12">
+              <router-link
+                :to="
+                  '/products-&-services/products/' +
+                  this.$route.params.productsbrand +
+                  '/' +
+                  this.$route.params.productssub_category
+                "
+                class="Back"
+                title="Back"
+              >
+                <span class="pic arrow-left"></span>
+                Back
+              </router-link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -112,7 +133,7 @@ export default {
       )
       .then((response) => {
         this.info = response.data.entries;
-        console.log(response.data.entries);
+        console.log("LIST", response.data.entries);
       })
       .catch((error) => {
         console.log(error);

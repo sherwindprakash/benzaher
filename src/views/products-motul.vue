@@ -47,7 +47,6 @@
             <router-link
               to="/products-&-services/products/motul/automotive"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
             >
               Automotive
             </router-link>
@@ -56,7 +55,6 @@
             <router-link
               to="/products-&-services/products/motul/motorcycle"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
             >
               Motorcycle
             </router-link>
@@ -65,7 +63,6 @@
             <router-link
               to="/products-&-services/products/motul/marine"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
             >
               Marine
             </router-link>

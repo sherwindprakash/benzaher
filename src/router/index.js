@@ -51,6 +51,7 @@ const router = createRouter({
       name: "Products",
       component: () => import("../views/products.vue"),
     },
+    // MOT
     {
       path: "/products-&-services/products/motul",
       name: "Motul",
@@ -61,39 +62,64 @@ const router = createRouter({
       name: "Motul List automotive",
       component: () => import("../views/products-motul-list-automotive.vue"),
     },
-
     {
-      path: "/products-&-services/products/:productsbrand/:productssub_category/:productsproduct_category_name",
-      name: "ProductsSingleListNEW",
-      component: () => import("../views/products_list.vue"),
+      path: "/products-&-services/products/motul/motorcycle",
+      name: "Motul List motorcycle new",
+      component: () => import("../views/products-motul-list-motorcycle.vue"),
     },
+    {
+      path: "/products-&-services/products/motul/marine",
+      name: "Motul List marine",
+      component: () => import("../views/products-motul-list-marine.vue"),
+    },
+    //
     {
       path: "/products-&-services/products/kn",
       name: "KN",
       component: () => import("../views/products-k&n.vue"),
     },
     {
-      path: "/products-&-services/products/kn/categores",
-      name: "Motul List",
-      component: () => import("../views/products-k&n-list.vue"),
+      path: "/products-&-services/products/kn/automotive",
+      name: "KN List automotive",
+      component: () => import("../views/products-kn-list-automotive.vue"),
     },
+    {
+      path: "/products-&-services/products/kn/motorcycle",
+      name: "Motul List motorcycle",
+      component: () => import("../views/products-kn-list-motorcycle.vue"),
+    },
+
+    //
+    {
+      path: "/products-&-services/products/:productsbrand/:productssub_category/:productsproduct_category_name",
+      name: "ProductsSingleListNEW",
+      component: () => import("../views/products_list.vue"),
+    },
+
+    {
+      path: "/products-&-services/products/:productsbrand/:productssub_category/:productsproduct_category_name/:id",
+      name: "ProductsSingle",
+      component: () => import("../views/products_single.vue"),
+    },
+
     {
       path: "/products-&-services/products/spare-parts",
       name: "spare-parts",
       component: () => import("../views/products-spare-parts.vue"),
     },
+
     {
-      path: "/products-&-services/products/spare-parts/categores",
+      path: "/products-&-services/products/spare-parts/:productssub_category/",
       name: "spare-parts List",
       component: () => import("../views/products-spare-parts-list.vue"),
     },
 
     // spare_parts
-    {
-      path: "/products-&-services/products/spare_part/:spare_partsid",
-      name: "spare_partsSingle",
-      component: () => import("../views/spare_parts_single.vue"),
-    },
+    // {
+    //   path: "/products-&-services/products/spare_part/:spare_partsid",
+    //   name: "spare_partsSingle",
+    //   component: () => import("../views/spare_parts_single.vue"),
+    // },
     //
     {
       path: "/products-&-services/services",

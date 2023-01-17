@@ -35,57 +35,18 @@
 
         <div
           class="columns"
-          style="
-            display: flex;
-            color: rgb(56, 54, 54);
-            justify-content: center;
-            margin: auto;
-            flex-wrap: wrap;
-          "
+          style="color: #383636; display: flex; flex-direction: row-reverse"
         >
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div
+            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
+            v-for="(make, index) in makes"
+            :key="index"
+          >
             <router-link
-              to="/products-&-services/products/motul/categores"
+              :to="`/products-&-services/products/spare-parts/` + make"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
             >
-              Transmission Filter & Gasket
-            </router-link>
-          </div>
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <router-link
-              to="/products-&-services/products/motul/services"
-              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
-            >
-              Spark Plug
-            </router-link>
-          </div>
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <router-link
-              to="/products-&-services/products/motul/services"
-              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
-            >
-              Belt
-            </router-link>
-          </div>
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <router-link
-              to="/products-&-services/products/motul/services"
-              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
-            >
-              Thermostate
-            </router-link>
-          </div>
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <router-link
-              to="/products-&-services/products/motul/services"
-              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-              title="300V Range"
-            >
-              Drain Plug
+              {{ make.replaceAll("_", " ") }}
             </router-link>
           </div>
         </div>
@@ -115,15 +76,21 @@ export default {
       baseurl: "https://binzaher.com/",
     };
   },
-
+  computed: {
+    makes() {
+      const makes = new Set();
+      this.info.forEach((car) => makes.add(car.sub_category));
+      return Array.from(makes);
+    },
+  },
   mounted() {
     axios
       .get(
-        "https://binzaher.com/api/api/singletons/get/products?token=b8766574e1a92b4e6296441248669c"
+        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=spare_parts"
       )
       .then((response) => {
-        this.info = response.data;
-        console.log(response.data);
+        this.info = response.data.entries;
+        console.log(response.data.entries);
       })
       .catch((error) => {
         console.log(error);
@@ -172,6 +139,7 @@ a.ProductURL {
   font-size: 19px;
   color: #383636;
   margin-top: 10px;
+  text-transform: capitalize;
 }
 @media only screen and (max-width: 600px) {
   .productsHolder {

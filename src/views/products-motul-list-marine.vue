@@ -24,46 +24,40 @@
             text-align: center;
           "
         >
-          K & N
+          Motul - Marine
         </h1>
 
         <div class="columns" style="color: #383636">
           <div class="column col-12 text-center">
-            <img src="../assets/products/K--N-logo.svg" class="IMGHolder" />
+            <img src="../assets/products/motul-logo.svg" class="IMGHolder" />
           </div>
         </div>
 
         <div
           class="columns"
-          style="
-            display: flex;
-            color: rgb(56, 54, 54);
-            justify-content: space-between;
-            max-width: 800px;
-            margin: auto;
-          "
+          style="color: #383636; display: flex; flex-direction: row-reverse"
         >
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div
+            class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
+            v-for="(make, index) in makes"
+            :key="index"
+          >
             <router-link
-              to="/products-&-services/products/kn/automotive"
+              :to="`/products-&-services/products/motul/motorcycle/` + make"
               class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
             >
-              Automotive
-            </router-link>
-          </div>
-          <div class="column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <router-link
-              to="/products-&-services/products/kn/motorcycle"
-              class="ProductURL column col-3 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-            >
-              Motorcycle
+              {{ make.replaceAll("_", " ") }}
             </router-link>
           </div>
         </div>
 
         <div class="columns" style="color: #383636; text-align: right; margin-top: 40px">
           <div class="column col-12">
-            <router-link to="/products-&-services/products/" class="Back" title="Back">
+            <router-link
+              to="/products-&-services/products/motul"
+              class="Back"
+              title="Back"
+            >
               <span class="pic arrow-left"></span>
               Back
             </router-link>
@@ -87,14 +81,22 @@ export default {
     };
   },
 
+  computed: {
+    makes() {
+      const makes = new Set();
+      this.info.forEach((car) => makes.add(car.product_category_name));
+      return Array.from(makes);
+    },
+  },
+
   mounted() {
     axios
       .get(
-        "https://binzaher.com/api/api/singletons/get/products?token=b8766574e1a92b4e6296441248669c"
+        "https://binzaher.com/api/api/collections/get/products?token=b8766574e1a92b4e6296441248669c&filter[brand]=motul&filter[sub_category]=marine"
       )
       .then((response) => {
-        this.info = response.data;
-        console.log(response.data);
+        this.info = response.data.entries;
+        console.log(response.data.entries);
       })
       .catch((error) => {
         console.log(error);
@@ -143,6 +145,7 @@ a.ProductURL {
   font-size: 19px;
   color: #383636;
   margin-top: 10px;
+  text-transform: capitalize;
 }
 @media only screen and (max-width: 600px) {
   .productsHolder {
