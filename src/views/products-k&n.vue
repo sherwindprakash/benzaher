@@ -1,18 +1,10 @@
 <template>
-  <section v-if="errored">
-    <p>
-      We're sorry, we're not able to retrieve this information at the moment, please try
-      back later
-    </p>
-  </section>
 
-  <section v-else style="background-color: white">
-    <div v-if="loading">
-      <div class="loading loading-lg"></div>
-    </div>
 
-    <div v-else>
-      <div class="productsHolder" v-if="info">
+  <section  style="background-color: white">
+
+
+      <div class="productsHolder" >
         <h1
           style="
             font-size: 30px;
@@ -70,7 +62,7 @@
           </div>
         </div>
       </div>
-    </div>
+   
   </section>
 </template>
 
@@ -136,13 +128,17 @@ img.IMGHolder {
 }
 a.ProductURL {
   border: 2px solid;
-  padding: 5px;
-  width: 100%;
-  display: block;
-  text-align: center;
-  font-size: 19px;
-  color: #383636;
-  margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 19px;
+    color: #383636;
+    margin-top: 10px;
+    text-transform: capitalize;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media only screen and (max-width: 600px) {
   .productsHolder {

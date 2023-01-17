@@ -132,14 +132,17 @@ img.IMGHolder {
 }
 a.ProductURL {
   border: 2px solid;
-  padding: 5px;
-  width: 100%;
-  display: block;
-  text-align: center;
-  font-size: 19px;
-  color: #383636;
-  margin-top: 10px;
-  text-transform: capitalize;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 19px;
+    color: #383636;
+    margin-top: 10px;
+    text-transform: capitalize;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media only screen and (max-width: 600px) {
   .productsHolder {

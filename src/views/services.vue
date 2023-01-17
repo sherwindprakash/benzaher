@@ -1,8 +1,8 @@
 <template>
   <section v-if="errored">
     <p>
-      We're sorry, we're not able to retrieve this information at the moment, please try
-      back later
+      We're sorry, we're not able to retrieve this information at the moment,
+      please try back later
     </p>
   </section>
 
@@ -79,7 +79,11 @@
                 </div>
 
                 <div class="modal" id="single_services">
-                  <a class="modal-overlay" href="#modals" aria-label="Close"></a>
+                  <a
+                    class="modal-overlay"
+                    href="#modals"
+                    aria-label="Close"
+                  ></a>
                   <div class="modal-container" role="document">
                     <div class="modal-header">
                       <a
@@ -118,52 +122,52 @@
                               <!--  -->
 
                               <div
-                                v-if="When_booking_a_service === 'Visit Service Center'"
+                                v-if="
+                                  When_booking_a_service ===
+                                  'Visit Service Center'
+                                "
+                                style="margin-top: 25px;
+    margin-bottom: 25px;"
                               >
-                                *where the user can select the branch they would like to
-                                go to, but Pre-select for them the nearest branch to them.
+                                *where the user can select the branch they would
+                                like to go to, but Pre-select for them the
+                                nearest branch to them.
                                 <!-- form radio control -->
                                 <div
                                   class="form-group"
-                                  style="display: flex; justify-content: space-evenly"
+                                  style="
+                                    display: flex;
+                                    justify-content: space-evenly;"
                                 >
-                                  <label class="form-radio">
+
+
+                                  <label class="form-radio"  v-for="list in info.services_centers" :key="list"
+>
                                     <input
                                       type="radio"
                                       name="Location"
                                       value="Location A"
                                       v-model="checkedNames"
-                                      checked
+
                                     />
-                                    <i class="form-icon"></i> Location A
+                                    <i class="form-icon"></i> {{ list.value.name }}
                                   </label>
-                                  <label class="form-radio">
-                                    <input
-                                      type="radio"
-                                      name="Location"
-                                      value="Location B"
-                                      v-model="checkedNames"
-                                    />
-                                    <i class="form-icon"></i> Location B
-                                  </label>
-                                  <label class="form-radio">
-                                    <input
-                                      type="radio"
-                                      name="Location"
-                                      value="Location C"
-                                      v-model="checkedNames"
-                                    />
-                                    <i class="form-icon"></i> Location C
-                                  </label>
+                                 
                                 </div>
                               </div>
 
-                              <div v-if="When_booking_a_service === 'KLIK Service'">
-                                *Where the website will take the user’s location, and the
-                                Klik Van will come to them.
+                              <div
+                                v-if="When_booking_a_service === 'KLIK Service'"
+                              >
+                                *Where the website will take the user’s
+                                location, and the Klik Van will come to them.
 
                                 <iframe
-                                  style="width: 100%; border: none; height: 400px"
+                                  style="
+                                    width: 100%;
+                                    border: none;
+                                    height: 400px;
+                                  "
                                   src="../location/index.html"
                                 ></iframe>
                               </div>
@@ -174,13 +178,30 @@
                                   >Selecte Service (Required)</label
                                 >
 
-                                <div v-for="list in info.single_services" :key="list">
-                                  <input
-                                    type="checkbox"
-                                    v-model="selected_service"
-                                    :value="list.value.name"
-                                  />
-                                  {{ list.value.name }}
+                                <div v-for="list in info.services" :key="list">
+                                  <h4
+                                    style="
+                                      font-size: 16px;
+                                      font-weight: 800;
+                                      margin: 0;
+                                      padding-top: 15px;
+                                      padding-bottom: 5px;
+                                    "
+                                  >
+                                    {{ list.value.title }}
+                                  </h4>
+
+                                  <div
+                                    v-for="item in list.value.sub_links"
+                                    :key="item"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      v-model="selected_service"
+                                      :value="item.value"
+                                    />
+                                    {{ item.value }}
+                                  </div>
                                 </div>
 
                                 <!-- <select
@@ -269,7 +290,9 @@
                               </div>
                               <!--  -->
                               <div class="form-group">
-                                <label class="form-label" for="Your_Message">Note</label>
+                                <label class="form-label" for="Your_Message"
+                                  >Note</label
+                                >
                                 <textarea
                                   rows="2"
                                   id="Your_Message"
@@ -283,7 +306,9 @@
                               <!--  -->
                             </div>
                             <div class="column col-12 text-right">
-                              <button class="BtnSend" type="submit">Book Now</button>
+                              <button class="BtnSend" type="submit">
+                                Book Now
+                              </button>
                             </div>
                           </div>
                         </form>
@@ -399,7 +424,8 @@ export default {
           email: this.customersEmail,
           mobile: this.customersMobile,
           name: this.customersName,
-          When_booking_a_service: this.When_booking_a_service + " / " + this.checkedNames,
+          When_booking_a_service:
+            this.When_booking_a_service + " / " + this.checkedNames,
           longitude: sessionStorage.getItem("longitude"),
           latitude: sessionStorage.getItem("latitude"),
         },
@@ -407,8 +433,7 @@ export default {
 
       var config = {
         method: "post",
-        url:
-          "https://binzaher.com/api/api/collections/save/service_booking?token=b8766574e1a92b4e6296441248669c",
+        url: "https://binzaher.com/api/api/collections/save/service_booking?token=b8766574e1a92b4e6296441248669c",
         headers: {
           "Content-Type": "application/json",
         },

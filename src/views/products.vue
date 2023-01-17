@@ -1,18 +1,7 @@
 <template>
-  <section v-if="errored">
-    <p>
-      We're sorry, we're not able to retrieve this information at the moment, please try
-      back later
-    </p>
-  </section>
-
-  <section v-else style="background-color: white">
-    <div v-if="loading">
-      <div class="loading loading-lg"></div>
-    </div>
-
-    <div v-else>
-      <div class="productsHolder" v-if="info">
+  <section  style="background-color: white">
+   
+      <div class="productsHolder">
         <h1
           style="
             font-size: 30px;
@@ -74,7 +63,6 @@
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
@@ -90,21 +78,7 @@ export default {
       baseurl: "https://binzaher.com/",
     };
   },
-  mounted() {
-    axios
-      .get(
-        "https://binzaher.com/api/api/singletons/get/products?token=b8766574e1a92b4e6296441248669c"
-      )
-      .then((response) => {
-        this.info = response.data;
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
-  },
+  
   components: {},
 };
 </script>
@@ -145,14 +119,17 @@ img.IMGHolder {
 
 a.ProductURL {
   border: 2px solid;
-  padding: 5px;
-  width: inherit;
-  display: inline;
-  text-align: center;
-  font-size: 19px;
-  color: #383636;
-  margin-top: 10px;
-  text-decoration: none;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 19px;
+    color: #383636;
+    margin-top: 10px;
+    text-transform: capitalize;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
