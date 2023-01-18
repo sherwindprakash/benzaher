@@ -62,6 +62,7 @@
                       <option>5</option>
                     </select>
                   </div>
+
                   <!-- quantit -->
                   <div class="column text-right">
                     <h2 style="font-weight: bold" v-if="key == 1">
