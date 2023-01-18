@@ -48,19 +48,34 @@
                 <div class="column">
                   <!-- quantity -->
 
-                  <div class="form-group ContHolder">
-                    <b>Quantity</b>
-                    <select
-                      class="form-select"
-                      v-model="quantity"
-                      style="width: 150px; display: block; margin-top: 20px"
-                    >
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
+                  <div class="ExplainBox">
+                    <div class="form-group ContHolder">
+                      <b>Quantity</b>
+                      <select
+                        class="form-select"
+                        v-model="quantity"
+                        style="width: 150px; display: block; margin-top: 20px"
+                      >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group ContHolder">
+                      <b>Available Liters</b>
+                      <select
+                        class="form-select"
+                        v-model="key"
+                        style="width: 150px; display: block; margin-top: 20px"
+                      >
+                        <option value="1">1 L</option>
+                        <option value="2">4 L</option>
+                        <option value="3">5 L</option>
+                      </select>
+                    </div>
                   </div>
                   <!-- quantit -->
                   <div class="column text-right">
@@ -71,10 +86,11 @@
                     <h2 style="font-weight: bold" v-if="key == 2">
                       <b>{{ info.price_4L * quantity }}</b> <sup>OMR</sup>
                     </h2>
-                    <h2 style="font-weight: bold" v-show="key == 3">
+                    <h2 style="font-weight: bold" v-if="key == 3">
                       <b>{{ info.price_5L * quantity }}</b> <sup>OMR</sup>
                     </h2>
                   </div>
+
                   <!--  -->
                   <div style="margin-top: 40px" class="text-right" v-if="customersEmail">
                     <form id="addtocart-form" @submit.prevent="AddtoCart">
@@ -149,7 +165,8 @@ export default {
     customersEmail() {
       return sessionStorage.getItem("customersEmail");
     },
-    Value() {
+
+    ValueADD() {
       if (this.key === 1) {
         return this.info.price * this.quantity;
       } else if (this.key === 2) {
@@ -160,6 +177,7 @@ export default {
         return this.info.price * this.quantity;
       }
     },
+
     product_size() {
       if (this.key === 1) {
         return "1 L";
@@ -206,9 +224,8 @@ export default {
             data: {
               user: this.customersEmail,
               product: this.$route.params.id,
-              // Send Values
               product_size: this.product_size,
-              value: this.Value,
+              value: this.ValueADD,
               quantity: this.quantity,
               id: this.currentDate(),
             },
@@ -237,6 +254,9 @@ export default {
 </script>
 
 <style scoped>
+.ExplainBox {
+  display: flex;
+}
 sup {
   font-weight: 400;
   font-size: 20px;
