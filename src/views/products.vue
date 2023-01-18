@@ -24,7 +24,7 @@
               <img src="../assets/products/motul-logo.svg" class="IMGHolder" />
             </router-link>
             <router-link to="/products-&-services/products/motul/" class="ProductURL">
-              Categores
+              Categories
             </router-link>
           </div>
 
@@ -35,7 +35,7 @@
               <img src="../assets/products/K--N-logo.svg" class="IMGHolder" />
             </router-link>
             <router-link to="/products-&-services/products/kn/" class="ProductURL">
-              Categores
+              Categories
             </router-link>
           </div>
 
@@ -49,7 +49,7 @@
               to="/products-&-services/products/spare-parts/"
               class="ProductURL"
             >
-              Categores
+            Categories
             </router-link>
           </div>
         </div>
