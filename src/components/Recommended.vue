@@ -1,8 +1,8 @@
 <template>
   <section v-if="errored">
     <p>
-      We're sorry, we're not able to retrieve this information at the moment,
-      please try back later
+      We're sorry, we're not able to retrieve this information at the moment, please try
+      back later
     </p>
   </section>
 
@@ -10,7 +10,7 @@
     <div v-if="loading"></div>
 
     <div v-else>
-      <div class="RecHolder" v-if="info[0].CarModel === P0">Recommended</div>
+      <div class="RecHolder">Recommended {{ P0 }}</div>
     </div>
   </section>
 </template>
@@ -57,15 +57,15 @@ export default {
 <style scoped>
 .RecHolder {
   display: inline;
-    position: absolute;
-    right: 0;
-    border: 1px solid #e5032c;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #e5032c;
-    color: white;
-    font-size: 14px;
-    font-style: italic;
-    font-weight: 500;
+  position: absolute;
+  right: 0;
+  border: 1px solid #e5032c;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #e5032c;
+  color: white;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
 }
 </style>

@@ -40,6 +40,7 @@
               class="column col-4 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center"
               style="position: relative"
             >
+              <Recommended :P0="1" />
               <router-link
                 :to="
                   '/products-&-services/products/' +
@@ -105,6 +106,7 @@
 import axios from "axios";
 import router from "../router";
 //var notyf = new Notyf();
+import Recommended from "@/components/Recommended.vue";
 
 export default {
   data() {
@@ -119,7 +121,7 @@ export default {
       return sessionStorage.getItem("customersEmail");
     },
   },
-  components: {},
+  components: { Recommended },
   methods: {},
   mounted() {
     axios
