@@ -93,10 +93,21 @@
 
                   <!--  -->
                   <div style="margin-top: 40px" class="text-right" v-if="customersEmail">
-                    <form id="addtocart-form" @submit.prevent="AddtoCart">
-                      <!--  -->
-                      <button class="btn btn-primary" type="submit">Add to Cart</button>
-                    </form>
+                    <div v-if="key == 1">
+                      <form id="addtocart-form" @submit.prevent="AddtoCart">
+                        <button class="btn btn-primary" type="submit">Add to Cart</button>
+                      </form>
+                    </div>
+                    <div v-if="key == 2">
+                      <form id="addtocart-form" @submit.prevent="AddtoCart2">
+                        <button class="btn btn-primary" type="submit">Add to Cart</button>
+                      </form>
+                    </div>
+                    <div v-if="key == 3">
+                      <form id="addtocart-form" @submit.prevent="AddtoCart3">
+                        <button class="btn btn-primary" type="submit">Add to Cart</button>
+                      </form>
+                    </div>
                   </div>
                   <div style="margin-top: 40px" class="text-right" v-else>
                     <router-link class="btn btn-primary" to="/login">
@@ -225,7 +236,69 @@ export default {
               user: this.customersEmail,
               product: this.$route.params.id,
               product_size: this.product_size,
-              value: this.ValueADD,
+              value: this.info.price * this.quantity,
+              quantity: this.quantity,
+              id: this.currentDate(),
+            },
+          }),
+        }
+      )
+        .then((res) => res.json())
+        .then((entry) => {
+          notyf.success("Add to Cart success.");
+          console.log(entry);
+          window.setTimeout(function () {
+            window.location.reload();
+          }, 10);
+        });
+    },
+    //
+    AddtoCart2: function () {
+      //
+      fetch(
+        "https://binzaher.com/api/api/collections/save/cart?token=b8766574e1a92b4e6296441248669c",
+        {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data: {
+              user: this.customersEmail,
+              product: this.$route.params.id,
+              product_size: this.product_size,
+              value: this.info.price_4L * this.quantity,
+              quantity: this.quantity,
+              id: this.currentDate(),
+            },
+          }),
+        }
+      )
+        .then((res) => res.json())
+        .then((entry) => {
+          notyf.success("Add to Cart success.");
+          console.log(entry);
+          window.setTimeout(function () {
+            window.location.reload();
+          }, 10);
+        });
+    },
+    //
+    AddtoCart3: function () {
+      //
+      fetch(
+        "https://binzaher.com/api/api/collections/save/cart?token=b8766574e1a92b4e6296441248669c",
+        {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data: {
+              user: this.customersEmail,
+              product: this.$route.params.id,
+              product_size: this.product_size,
+              value: this.info.price_5L * this.quantity,
               quantity: this.quantity,
               id: this.currentDate(),
             },
