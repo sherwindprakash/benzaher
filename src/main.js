@@ -1,10 +1,11 @@
 import { createApp } from "vue";
+
 import App from "./App.vue";
 
 //import "./registerServiceWorker";
 import router from "./router";
 
-import './registerServiceWorker'
+import "./registerServiceWorker";
 //import store from "./store";
 
 createApp(App).use(router).mount("#app");
@@ -14,9 +15,8 @@ navigator.geolocation.getCurrentPosition((position) => {
   const { latitude, longitude } = position.coords;
   // Show a map centered at latitude / longitude.
   console.log(position.coords);
-  sessionStorage.setItem('latitude', position.coords.latitude);
-  sessionStorage.setItem('longitude', position.coords.longitude);
-
+  sessionStorage.setItem("latitude", position.coords.latitude);
+  sessionStorage.setItem("longitude", position.coords.longitude);
 });
 //
 

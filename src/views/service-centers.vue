@@ -3,16 +3,18 @@
     <div class="RegisterHolder">
       <div class="CHolder">
         <div class="columns">
-          <div
-            class="column col-8 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8"
-          ></div>
+          <div class="column col-8 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8"></div>
           <div class="column col-12 text-left">
-            <iframe
+            <!-- <iframe
               style="width: 100%; border: none; height: 500px"
               src="../map.html"
-            ></iframe>
-            <div style="text-align: center;
-    margin-top: 20px;">
+            ></iframe> -->
+
+            <!-- MAP HERe -->
+
+            <!--  -->
+
+            <div style="text-align: center; margin-top: 20px">
               <router-link class="Mybtn" to="/products-&-services/services"
                 >Book a service</router-link
               >
@@ -23,6 +25,8 @@
     </div>
   </div>
 </template>
+
+<script></script>
 
 <style scoped>
 .PageHolder.Holder {
