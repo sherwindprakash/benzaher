@@ -331,7 +331,7 @@
             "
           >
             <img
-              :src="'https://binzaher.com' + info.image.path"
+              :src="'https://www.binzaher.com/api/storage/uploads' + info.image.path"
               :alt="info.title_en"
               :title="info.title_en"
               class="IMGHolder"
